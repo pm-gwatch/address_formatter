@@ -1,6 +1,3 @@
-
-In most countries, an address consists of a combination of elements such as a street name, a house number, a postal code, and a locality name. However, the order, structure, and even the elements themselves can vary significantly between countries. Most countries format addresses from the most specific element (such as street and house number) to the most general (such as city and country). East Asian countries — including China, Japan, South Korea, and Taiwan — follow the opposite convention: addresses are written from the largest administrative area (such as province or prefecture) down to the most specific unit (such as a room or house number). Several post-Soviet states, including Belarus, Kazakhstan, and Kyrgyzstan, follow the same big-to-small order, a convention inherited from Soviet postal standards.
-
 `AddressFormatter` converts address components into correctly formatted postal addresses for countries worldwide thanks to a set of templates based on [OpenCage Data](https://github.com/OpenCageData/address-formatting/). It can format output from the [OpenCage Geocoding API](https://opencagedata.com/api). Other compatible sources of data such as Open Street Maps' [Nominatim API](https://wiki.openstreetmap.org/wiki/Nominatim) and [Photon](https://photon.komoot.io/) may be used as well.
 
 ## Getting started
