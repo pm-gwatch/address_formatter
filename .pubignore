@@ -1,0 +1,5 @@
+# Build-time code generator and data — not needed by package consumers
+tool/
+
+# Claude Code project guidance
+CLAUDE.md
