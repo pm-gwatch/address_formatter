@@ -2,57 +2,29 @@ import 'package:address_formatter/address_formatter.dart';
 import 'package:test/test.dart';
 
 // Reusable static address: Ecole Peschier, Geneva (CH).
+// No 'country' supplied — kCountryNames injects 'Switzerland'.
 const _ch = {
   'house_number': '28',
   'road': 'Avenue Dumas',
   'city': 'Genève',
   'postcode': '1206',
-  'country': 'Suisse',
   'country_code': 'ch',
 };
 
 // Convenience wrapper: formats [comps] and splits the output into lines.
 List<String> _lines(
   Map<String, dynamic> comps, {
-  String? languageCode,
   String? fallbackCountryCode,
-  String countryNameLanguageCode = 'en',
   bool appendCountry = true,
   bool abbreviate = false,
 }) => AddressFormatter.multiLineFormat(
   comps,
-  languageCode: languageCode,
   fallbackCountryCode: fallbackCountryCode,
-  countryNameLanguageCode: countryNameLanguageCode,
   appendCountry: appendCountry,
   abbreviate: abbreviate,
 ).split('\n');
 
 void main() {
-  // ── Country name via CLDR ─────────────────────────────────────────────────
-
-  group('countryNameLanguageCode (CLDR)', () {
-    test('defaults to English: CH → Switzerland', () {
-      expect(_lines(_ch), contains('Switzerland'));
-    });
-
-    test('countryNameLanguageCode: de → Schweiz', () {
-      expect(_lines(_ch, countryNameLanguageCode: 'de'), contains('Schweiz'));
-    });
-
-    test('countryNameLanguageCode: fr → Suisse', () {
-      expect(_lines(_ch, countryNameLanguageCode: 'fr'), contains('Suisse'));
-    });
-
-    test('countryNameLanguageCode: it → Svizzera', () {
-      expect(_lines(_ch, countryNameLanguageCode: 'it'), contains('Svizzera'));
-    });
-
-    test('unsupported language code falls back to English → Switzerland', () {
-      expect(_lines(_ch, countryNameLanguageCode: 'xx'), contains('Switzerland'));
-    });
-  });
-
   // ── Address format structure ──────────────────────────────────────────────
 
   group('formatted address structure', () {
@@ -60,16 +32,14 @@ void main() {
       final lines = _lines(_ch);
       expect(lines, contains('Avenue Dumas 28'));
       expect(lines, contains('1206 Genève'));
-      // CLDR en replaces the supplied 'Suisse' with 'Switzerland'
       expect(lines, contains('Switzerland'));
-      expect(lines, isNot(contains('Suisse')));
     });
 
     test('appendCountry: false omits the country line', () {
       final lines = _lines(_ch, appendCountry: false);
       expect(lines, contains('Avenue Dumas 28'));
       expect(lines, contains('1206 Genève'));
-      expect(lines, isNot(contains('Switzerland')));
+      expect(lines, isNot(anyElement(contains('Switzerland'))));
     });
 
     test('FR (generic3): house_number road / postcode city / country', () {
@@ -92,12 +62,10 @@ void main() {
         'house_number': '1',
         'city': 'Berlin',
         'postcode': '10117',
-        'country': 'Deutschland',
         'country_code': 'de',
       });
       expect(lines, contains('Unter den Linden 1'));
       expect(lines, contains('10117 Berlin'));
-      // CLDR en replaces the supplied 'Deutschland' with 'Germany'
       expect(lines, contains('Germany'));
     });
 
@@ -400,8 +368,8 @@ void main() {
   // ── East Asian address formats ────────────────────────────────────────────
 
   group('East Asian address formats', () {
-    // TW default (zh): big-to-small — country / postcode / city+suburb+road+number
-    test('TW (zh): address rendered big-to-small', () {
+    // TW: big-to-small — country / postcode / city+suburb+road+number
+    test('TW: address rendered big-to-small', () {
       final lines = _lines({
         'house_number': '1',
         'road': 'Zhongshan South Road',
@@ -417,22 +385,6 @@ void main() {
       expect(streetLine, contains('Taipei'));
       expect(streetLine, contains('Zhongzheng District'));
       expect(streetLine, contains('1'));
-    });
-
-    // TW_en: Western order — house_number, road / suburb, city postcode / country
-    test('TW (en): address rendered small-to-big', () {
-      final lines = _lines({
-        'house_number': '1',
-        'road': 'Zhongshan South Road',
-        'suburb': 'Zhongzheng District',
-        'city': 'Taipei',
-        'postcode': '100',
-        'country': 'Taiwan',
-        'country_code': 'tw',
-      }, languageCode: 'en');
-      expect(lines.first, contains('Zhongshan South Road'));
-      expect(lines.last, equals('Taiwan'));
-      expect(lines, anyElement(contains('100')));
     });
 
     // HK default: house_number road / state_district / state || country
@@ -455,23 +407,6 @@ void main() {
       },
     );
 
-    // HK_en: state and country both rendered on separate lines
-    test('HK (en): state and country on separate lines', () {
-      final lines = _lines({
-        'house_number': '1',
-        'road': 'Harbour Road',
-        'state_district': 'Wan Chai',
-        'state': 'Hong Kong Island',
-        'country': 'Hong Kong',
-        'country_code': 'hk',
-      }, languageCode: 'en');
-      expect(lines, contains('1 Harbour Road'));
-      expect(lines, contains('Wan Chai'));
-      expect(lines, contains('Hong Kong Island'));
-      // CLDR en alt-short gives 'Hong Kong' instead of the verbose 'Hong Kong SAR China'
-      expect(lines, contains('Hong Kong'));
-    });
-
     // MO default: road house_number / state_district / country
     // The MO template uses {{{suburb}}} in its fallback group, but 'suburb' is
     // aliased to 'neighbourhood' by _applyAliases, so it never renders. The
@@ -480,13 +415,11 @@ void main() {
       final lines = _lines({
         'road': 'Avenida Dr. Sun Yat-Sen',
         'state_district': 'NAPE',
-        'country': 'Macau',
         'country_code': 'mo',
       });
       expect(lines, contains('Avenida Dr. Sun Yat-Sen'));
       expect(lines, contains('NAPE'));
-      // CLDR en alt-short gives 'Macao' instead of the verbose 'Macao SAR China'
-      expect(lines, contains('Macao'));
+      expect(lines, contains('Macau'));
     });
   });
 
@@ -502,15 +435,31 @@ void main() {
       expect(AddressFormatter.format(_ch), isNot(contains('')));
     });
 
-    test('countryNameLanguageCode: fr → Suisse', () {
-      final lines = AddressFormatter.format(_ch, countryNameLanguageCode: 'fr');
-      expect(lines, contains('Suisse'));
-      expect(lines, isNot(contains('Switzerland')));
+    test('country injected from kCountryNames when absent', () {
+      final lines = AddressFormatter.format({
+        'road': 'Via Condotti',
+        'city': 'Rome',
+        'postcode': '00187',
+        'country_code': 'it',
+      });
+      expect(lines, contains('Italy'));
+    });
+
+    test('geocoder-supplied country is preserved as-is', () {
+      final lines = AddressFormatter.format({
+        'road': 'Via Condotti',
+        'city': 'Rome',
+        'postcode': '00187',
+        'country': 'Italia',
+        'country_code': 'it',
+      });
+      expect(lines, contains('Italia'));
+      expect(lines, isNot(contains('Italy')));
     });
 
     test('forwards appendCountry: false → no country line', () {
       final lines = AddressFormatter.format(_ch, appendCountry: false);
-      expect(lines, isNot(contains('Switzerland')));
+      expect(lines, isNot(anyElement(contains('Switzerland'))));
     });
   });
 
@@ -522,7 +471,6 @@ void main() {
       expect(result.split('\n'), hasLength(1));
       expect(result, contains('Avenue Dumas 28'));
       expect(result, contains('1206 Genève'));
-      // CLDR en default
       expect(result, contains('Switzerland'));
     });
 
@@ -534,6 +482,7 @@ void main() {
     test('forwards appendCountry: false → country absent from output', () {
       final result = AddressFormatter.singleLineFormat(_ch, appendCountry: false);
       expect(result, isNot(contains('Switzerland')));
+      expect(result, isNot(contains('Suisse')));
     });
   });
 }

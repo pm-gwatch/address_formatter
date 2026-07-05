@@ -8,20 +8,15 @@
 //
 // Without --local: fetches OpenCage YAML from the upstream repository.
 //
-// Note: territory_names.g.dart is always fetched from CLDR (network required),
-// regardless of --local.
-//
 // Generated files (in lib/src/generated/):
 //   abbreviations.g.dart    — per-language word → abbreviation maps
 //   worldwide.g.dart        — mustache templates + per-country format entries
-//   territory_names.g.dart  — country display names in 82 languages (CLDR)
 //   components.g.dart       — canonical component names and aliases
-//   country_codes.g.dart    — ISO 3166-1 alpha-2 code set
+//   country_names.g.dart    — ISO 3166-1 alpha-2 code → English country name
 //   country2lang.g.dart     — country → official language codes
 //   county_codes.g.dart     — county/district codes per country
 //   state_codes.g.dart      — state/province codes per country
 
-import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:yaml/yaml.dart';
@@ -34,25 +29,7 @@ const _baseUrl =
     'https://raw.githubusercontent.com/OpenCageData/address-formatting/'
     'master/conf';
 
-const _cldrBaseUrl =
-    'https://raw.githubusercontent.com/unicode-org/cldr-json/main/'
-    'cldr-json/cldr-localenames-full/main';
-
 const _outputDir = 'lib/src/generated';
-
-// Language codes from kMaterialSupportedLanguages (Flutter localizations).
-// Used to generate kTerritoryNames in territory_names.g.dart.
-const _materialLanguages = [
-  'af', 'am', 'ar', 'as', 'az', 'be', 'bg', 'bn', 'bo', 'bs',
-  'ca', 'cs', 'cy', 'da', 'de', 'el', 'en', 'es', 'et', 'eu',
-  'fa', 'fi', 'fil', 'fr', 'ga', 'gl', 'gsw', 'gu', 'he', 'hi',
-  'hr', 'hu', 'hy', 'id', 'is', 'it', 'ja', 'ka', 'kk', 'km',
-  'kn', 'ko', 'ky', 'lo', 'lt', 'lv', 'mk', 'ml', 'mn', 'mr',
-  'ms', 'my', 'nb', 'ne', 'nl', 'no', 'or', 'pa', 'pl', 'ps',
-  'pt', 'ro', 'ru', 'si', 'sk', 'sl', 'sq', 'sr', 'sv', 'sw',
-  'ta', 'te', 'th', 'tl', 'tr', 'ug', 'uk', 'ur', 'uz', 'vi',
-  'zh', 'zu',
-];
 
 // Language codes for conf/abbreviations/*.yaml, in alphabetical order.
 // Used for remote fetching; local mode discovers files dynamically.
@@ -93,9 +70,8 @@ void main(List<String> args) async {
   await Future.wait([
     _generateAbbreviations(confDir),
     _generateWorldwideAddressTemplates(confDir),
-    _generateTerritoryNames(),
     _generateComponents(confDir),
-    _generateCountryCodes(confDir),
+    _generateCountryNames(confDir),
     _generateCountry2Lang(confDir),
     _generateCodeMap(
       confDir: confDir,
@@ -343,106 +319,6 @@ String _convertAddressFormats(YamlMap doc) {
 }
 
 // ---------------------------------------------------------------------------
-// Generator: territory_names.g.dart
-// ---------------------------------------------------------------------------
-
-// Generates territory_names.g.dart by fetching CLDR territory display names
-// for every language in _materialLanguages. Locales that return a non-200
-// status are skipped silently (e.g. 'no', 'tl' may not exist as top-level
-// CLDR locales). Always fetches from the network; not affected by --local.
-Future<void> _generateTerritoryNames() async {
-  final langData = <String, Map<String, String>>{};
-  var resolved = 0;
-  final ccPattern = RegExp(r'^[A-Z]{2}$');
-
-  await Future.wait(
-    _materialLanguages.map((lang) async {
-      final url = '$_cldrBaseUrl/$lang/territories.json';
-      stdout.writeln('Fetching $url ...');
-      final response = await http.get(Uri.parse(url));
-      if (response.statusCode != 200) {
-        stdout.writeln('  [skip] $lang: HTTP ${response.statusCode}');
-        return;
-      }
-      try {
-        final json = jsonDecode(response.body) as Map<String, dynamic>;
-        final main = json['main'] as Map<String, dynamic>;
-        final localeData = main.values.first as Map<String, dynamic>;
-        final territories = (localeData['localeDisplayNames']
-            as Map<String, dynamic>)['territories'] as Map<String, dynamic>;
-
-        // Keep only 2-letter uppercase country codes, discarding M49 numeric
-        // region codes and hyphenated keys (alt-short, alt-variant, etc.).
-        // Where a preferred short form exists (CC-alt-short with length > 2),
-        // use it in place of the verbose standard form, so that each territory
-        // code maps to exactly one display name.
-        langData[lang] = Map<String, String>.fromEntries(
-          territories.keys
-              .where(ccPattern.hasMatch)
-              .map((cc) {
-                final altShort = territories['$cc-alt-short'];
-                final name = (altShort is String && altShort.length > 2)
-                    ? altShort
-                    : (territories[cc] as String);
-                return MapEntry(cc, name);
-              }),
-        );
-        resolved++;
-      } catch (e) {
-        stdout.writeln('  [skip] $lang: parse error ($e)');
-      }
-    }),
-  );
-
-  stdout.writeln(
-    'Territory names: resolved $resolved/${_materialLanguages.length} languages.',
-  );
-
-  final buf = StringBuffer();
-  buf.writeln('// GENERATED FILE — do not edit by hand.');
-  buf.writeln('// Regenerate with: dart run tool/templates_generator.dart');
-  buf.writeln('//');
-  buf.writeln('// Source: unicode-org/cldr-json (cldr-localenames-full)');
-  buf.writeln('//   https://github.com/unicode-org/cldr-json');
-  buf.writeln('// ignore_for_file: constant_identifier_names, lines_longer_than_80_chars');
-  buf.writeln();
-  buf.writeln('/// Country display names keyed first by ISO 639-1 language code,');
-  buf.writeln('/// then by ISO 3166-1 alpha-2 territory code.');
-  buf.writeln('///');
-  buf.writeln('/// Each territory code maps to exactly one display name: the CLDR');
-  buf.writeln('/// short form (alt-short) when one exists, otherwise the standard form.');
-  buf.writeln('/// M49 numeric region codes and hyphenated alt-* keys are excluded;');
-  buf.writeln('/// two-letter non-country codes (EU, EZ, …) are retained but never');
-  buf.writeln('/// looked up at runtime since they do not appear in [kCountryCodes].');
-  buf.writeln('///');
-  buf.writeln('/// The set of supported language codes mirrors');
-  // ignore_for_file line keeps the long URL from triggering a lint warning.
-  buf.writeln(
-    '/// [kMaterialSupportedLanguages](https://api.flutter.dev/flutter/flutter_localizations/kMaterialSupportedLanguages.html).',
-  );
-  buf.writeln('/// Pass a language code as the `countryNameLanguageCode` parameter of');
-  buf.writeln('/// [AddressFormatter.format]; unsupported codes fall back to `\'en\'`.');
-  buf.writeln('const Map<String, Map<String, String>> kTerritoryNames = {');
-
-  for (final lang in _materialLanguages) {
-    final territories = langData[lang];
-    if (territories == null) continue;
-    buf.writeln("  ${_dartSingleString(lang)}: {");
-    final sorted = territories.entries.toList()
-      ..sort((a, b) => a.key.compareTo(b.key));
-    for (final e in sorted) {
-      buf.writeln("    ${_dartSingleString(e.key)}: ${_dartSingleString(e.value)},");
-    }
-    buf.writeln('  },');
-  }
-
-  buf.writeln('};');
-
-  File('$_outputDir/territory_names.g.dart').writeAsStringSync(buf.toString());
-  stdout.writeln('Written → $_outputDir/territory_names.g.dart');
-}
-
-// ---------------------------------------------------------------------------
 // Generator: components.g.dart
 // ---------------------------------------------------------------------------
 
@@ -494,16 +370,22 @@ Future<void> _generateComponents(String? confDir) async {
 }
 
 // ---------------------------------------------------------------------------
-// Generator: country_codes.g.dart
+// Generator: country_names.g.dart
 // ---------------------------------------------------------------------------
 
-// Generates country_codes.g.dart from conf/country_codes.yaml.
-// Emits kCountryCodes, the set of ISO 3166-1 alpha-2 codes recognised by
-// the address-formatting spec.
-Future<void> _generateCountryCodes(String? confDir) async {
+// Generates country_names.g.dart from conf/country_codes.yaml.
+// Country names are taken from the inline comment on each entry
+// (e.g. "AD: # Andorra"). loadYaml strips comments, so we parse
+// the raw text with a regex instead.
+Future<void> _generateCountryNames(String? confDir) async {
   final raw = await _readConf(confDir, 'country_codes.yaml');
-  final doc = loadYaml(raw) as YamlMap;
-  final codes = doc.keys.cast<String>().toList()..sort();
+
+  final linePattern = RegExp(r'^([A-Z]{2}):\s*#\s*(.+)$', multiLine: true);
+  final entries = <String, String>{};
+  for (final m in linePattern.allMatches(raw)) {
+    entries[m.group(1)!] = m.group(2)!.trim();
+  }
+  final sorted = entries.entries.toList()..sort((a, b) => a.key.compareTo(b.key));
 
   final buf = StringBuffer();
   buf.writeln('// GENERATED FILE — do not edit by hand.');
@@ -512,15 +394,20 @@ Future<void> _generateCountryCodes(String? confDir) async {
   buf.writeln('// Source: OpenCageData/address-formatting/conf/country_codes.yaml');
   buf.writeln('// ignore_for_file: constant_identifier_names, lines_longer_than_80_chars');
   buf.writeln();
-  buf.writeln('/// ISO 3166-1 alpha-2 country codes recognised by the address-formatting spec.');
-  buf.writeln('const Set<String> kCountryCodes = {');
-  for (final code in codes) {
-    buf.writeln("  ${_dartSingleString(code)},");
+  buf.writeln('/// ISO 3166-1 alpha-2 country codes mapped to their English display names.');
+  buf.writeln('///');
+  buf.writeln('/// Names are taken from the inline comment on each entry in');
+  buf.writeln('/// `conf/country_codes.yaml` (e.g. `AD: # Andorra`).');
+  buf.writeln('/// Used by [AddressFormatter] to fill in the `country` component when');
+  buf.writeln('/// the geocoder response does not include one.');
+  buf.writeln('const Map<String, String> kCountryNames = {');
+  for (final e in sorted) {
+    buf.writeln("  ${_dartSingleString(e.key)}: ${_dartSingleString(e.value)},");
   }
   buf.writeln('};');
 
-  File('$_outputDir/country_codes.g.dart').writeAsStringSync(buf.toString());
-  stdout.writeln('Written → $_outputDir/country_codes.g.dart');
+  File('$_outputDir/country_names.g.dart').writeAsStringSync(buf.toString());
+  stdout.writeln('Written → $_outputDir/country_names.g.dart');
 }
 
 // ---------------------------------------------------------------------------

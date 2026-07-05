@@ -3,11 +3,10 @@ import 'package:mustache_template/mustache_template.dart';
 import 'generated/abbreviations.g.dart';
 import 'generated/worldwide.g.dart';
 import 'generated/components.g.dart';
-import 'generated/country_codes.g.dart';
+import 'generated/country_names.g.dart';
 import 'generated/country2lang.g.dart';
 import 'generated/county_codes.g.dart';
 import 'generated/state_codes.g.dart';
-import 'generated/territory_names.g.dart';
 
 /// Converts geocoder address components into a localised, human-readable
 /// address string following the
@@ -24,9 +23,9 @@ import 'generated/territory_names.g.dart';
 /// ```dart
 /// final address = nominatimResult['address'] as Map<String, dynamic>;
 ///
-/// final lines = AddressFormatter.format(address, languageCode: 'fr');
-/// final multiLine = AddressFormatter.multiLineFormat(address, languageCode: 'fr');
-/// final singleLine = AddressFormatter.singleLineFormat(address, languageCode: 'fr');
+/// final lines = AddressFormatter.format(address);
+/// final multiLine = AddressFormatter.multiLineFormat(address);
+/// final singleLine = AddressFormatter.singleLineFormat(address);
 /// ```
 abstract final class AddressFormatter {
   static final Map<String, Template> _templateCache = {};
@@ -54,7 +53,7 @@ abstract final class AddressFormatter {
   /// [singleLineFormat] are thin wrappers that join the returned list.
   ///
   /// [components] is the flat address map returned by a geocoder such as
-  /// Nominatim or Photon. Keys follow Nominatim field names; aliases such as
+  /// Nominatim. Keys follow Nominatim field names; aliases such as
   /// `street` and `housenumber` are resolved automatically to the canonical
   /// OpenCage names `road` and `house_number`.
   ///
@@ -62,11 +61,11 @@ abstract final class AddressFormatter {
   /// 1. Alias resolution (`street` → `road`, `suburb` → `neighbourhood`, …).
   /// 2. Country code normalisation: `UK` → `GB`; Netherlands overseas
   ///    territories redirect to their own codes (e.g. Curaçao → `CW`).
-  /// 3. Format entry lookup: `CC_ll` → `CC` → `default`.
+  /// 3. Format entry lookup: `CC` → `default`.
   /// 4. `use_country` — delegate format rules to another country's entry.
-  /// 5. CLDR lookup — set `country` from `kTerritoryNames` using
-  ///    [countryNameLanguageCode] and the original country code.
-  /// 6. `change_country` / `add_component` — may override the CLDR name.
+  /// 5. Country name injection — if `country` is absent in [components] and
+  ///    [appendCountry] is `true`, fills it from `kCountryNames` (English).
+  /// 6. `change_country` / `add_component` — may override the injected name.
   /// 7. Pre-render component substitutions (`replace`).
   /// 8. Component enrichment: `state_code` and `county_code` injected from
   ///    generated lookup tables; URL-valued components and malformed postcodes
@@ -79,15 +78,6 @@ abstract final class AddressFormatter {
   /// [fallbackCountryCode] is the ISO 3166-1 alpha-2 code used when
   /// `country_code` is absent or unrecognised. Defaults to `null`.
   ///
-  /// [languageCode] selects a `CC_ll` template variant for countries with
-  /// multiple format layouts (CA, CN, HK, IR, JP, KR, MO, TW).
-  /// Defaults to `null` (country default layout).
-  ///
-  /// [countryNameLanguageCode] is the ISO 639-1 code for the language in
-  /// which the country name is displayed. Supported codes mirror
-  /// [kMaterialSupportedLanguages](https://api.flutter.dev/flutter/flutter_localizations/kMaterialSupportedLanguages.html);
-  /// unsupported codes fall back to `'en'`. Defaults to `'en'`.
-  ///
   /// [appendCountry] controls whether the country name appears in the output.
   /// Defaults to `true`.
   ///
@@ -97,8 +87,6 @@ abstract final class AddressFormatter {
   static List<String> format(
     Map<String, dynamic> components, {
     String? fallbackCountryCode,
-    String? languageCode,
-    String countryNameLanguageCode = 'en',
     bool appendCountry = true,
     bool abbreviate = false,
   }) {
@@ -114,7 +102,7 @@ abstract final class AddressFormatter {
     // Validate/normalise the country code (UK→GB, NL territories, etc.).
     final cc = _resolveCountryCode(comps, fallbackCountryCode?.toUpperCase());
 
-    final key = _resolveKey(cc, languageCode);
+    final key = _resolveKey(cc);
     final entry = kAddressCountries[key] ?? kAddressCountries['default']!;
 
     final Map<String, Object> formatEntry;
@@ -128,14 +116,12 @@ abstract final class AddressFormatter {
       formatEntry = entry;
     }
 
-    // Set country name from CLDR, using cc (original territory, not effectiveCc)
-    // so that e.g. Puerto Rico shows the name for PR, not US.
+    // If the geocoder didn't supply a country name, fill it from kCountryNames.
+    // Gated on appendCountry so we don't inject a name that's about to be removed.
     // change_country below may still override this for entries like GG and PR.
-    if (cc != 'default') {
-      final normalised = countryNameLanguageCode.toLowerCase();
-      final lang = kTerritoryNames.containsKey(normalised) ? normalised : 'en';
-      final cldrName = kTerritoryNames[lang]?[cc];
-      if (cldrName != null) comps['country'] = cldrName;
+    if (appendCountry && cc != 'default' && !comps.containsKey('country')) {
+      final name = kCountryNames[cc];
+      if (name != null) comps['country'] = name;
     }
 
     if (entry.containsKey('change_country')) {
@@ -186,15 +172,11 @@ abstract final class AddressFormatter {
   static String multiLineFormat(
     Map<String, dynamic> components, {
     String? fallbackCountryCode,
-    String? languageCode,
-    String countryNameLanguageCode = 'en',
     bool appendCountry = true,
     bool abbreviate = false,
   }) => format(
     components,
     fallbackCountryCode: fallbackCountryCode,
-    languageCode: languageCode,
-    countryNameLanguageCode: countryNameLanguageCode,
     appendCountry: appendCountry,
     abbreviate: abbreviate,
   ).join('\n');
@@ -205,15 +187,11 @@ abstract final class AddressFormatter {
   static String singleLineFormat(
     Map<String, dynamic> components, {
     String? fallbackCountryCode,
-    String? languageCode,
-    String countryNameLanguageCode = 'en',
     bool appendCountry = true,
     bool abbreviate = false,
   }) => format(
     components,
     fallbackCountryCode: fallbackCountryCode,
-    languageCode: languageCode,
-    countryNameLanguageCode: countryNameLanguageCode,
     appendCountry: appendCountry,
     abbreviate: abbreviate,
   ).join(', ');
@@ -240,7 +218,7 @@ abstract final class AddressFormatter {
       }
     }
 
-    if (kCountryCodes.contains(cc)) return cc;
+    if (kCountryNames.containsKey(cc)) return cc;
 
     // Country code is a numeric or otherwise unknown string — use state name
     // as the country if a proper name is absent.
@@ -254,7 +232,7 @@ abstract final class AddressFormatter {
     // Try the fallback CC.
     if (cc.isEmpty && fallbackCC != null) {
       final fb = fallbackCC == 'UK' ? 'GB' : fallbackCC;
-      if (kCountryCodes.contains(fb)) return fb;
+      if (kCountryNames.containsKey(fb)) return fb;
     }
 
     return cc.isEmpty ? 'default' : cc;
@@ -262,14 +240,8 @@ abstract final class AddressFormatter {
 
   // ── Key resolution ────────────────────────────────────────────────────────
 
-  static String _resolveKey(String cc, String? lang) {
-    if (cc == 'default' || !kAddressCountries.containsKey(cc)) {
-      return 'default';
-    }
-    if (lang != null) {
-      final langKey = '${cc}_${lang.toLowerCase()}';
-      if (kAddressCountries.containsKey(langKey)) return langKey;
-    }
+  static String _resolveKey(String cc) {
+    if (cc == 'default' || !kAddressCountries.containsKey(cc)) return 'default';
     return cc;
   }
 

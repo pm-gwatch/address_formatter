@@ -1,5 +1,5 @@
 
-`AddressFormatter` converts address components into correctly formatted postal addresses for countries worldwide thanks to a set of templates based on [OpenCage Data](https://github.com/OpenCageData/address-formatting/). It can format output from the [OpenCage Geocoding API](https://opencagedata.com/api). Other compatible sources of data such as Open Street Maps' [Nominatim API](https://wiki.openstreetmap.org/wiki/Nominatim) and [Photon](https://photon.komoot.io/) may be used as well.
+`AddressFormatter` converts address components into correctly formatted postal addresses for countries worldwide thanks to a set of templates based on [OpenCage Data](https://github.com/OpenCageData/address-formatting/). It can format output from the [OpenCage Geocoding API](https://opencagedata.com/api) and Open Street Maps' [Nominatim API](https://wiki.openstreetmap.org/wiki/Nominatim).
 
 ## Getting started
 
@@ -66,74 +66,6 @@ print(AddressFormatter.singleLineFormat({
 ### Options
 
 All three methods accept the following named parameters.
-
-#### `languageCode` — select a language variant
-
-Eight countries define distinct address templates per language. Pass an [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code to select a variant; omit it to use the country default.
-
-| Country          | Variants         |
-| ---------------- | ---------------- |
-| CA — Canada      | `en` (default), `fr` |
-| CN — China       | `en`, `zh` (default) |
-| HK — Hong Kong   | `en`, `zh` |
-| IR — Iran        | `en` (default), `fa` |
-| JP — Japan       | `en` (default), `ja` |
-| KR — South Korea | `en`, `ko` (default) |
-| MO — Macau       | `pt` (default), `zh` |
-| TW — Taiwan      | `en`, `zh` (default) |
-
-Taiwan illustrates how a single address can be rendered in big-to-small or small-to-big order depending on the language:
-
-```dart
-final components = {
-  'house_number': '1',
-  'road': 'Zhongshan South Road',
-  'neighbourhood': 'Zhongzheng District',
-  'city': 'Taipei',
-  'postcode': '100',
-  'country': 'Taiwan',
-  'country_code': 'tw',
-};
-
-// Default (zh): big-to-small
-print(AddressFormatter.multiLineFormat(components));
-// Taiwan
-// 100
-// Taipei Zhongzheng District Zhongshan South Road 1
-
-// English variant: small-to-big
-print(AddressFormatter.multiLineFormat(components, languageCode: 'en'));
-// 1, Zhongshan South Road
-// Zhongzheng District, Taipei 100
-// Taiwan
-```
-
-#### `countryNameLanguageCode` — select the country name language
-
-Controls the language in which the country name appears in the output. Accepts any [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) code from Flutter's [`kMaterialSupportedLanguages`](https://api.flutter.dev/flutter/flutter_localizations/kMaterialSupportedLanguages.html) (81 languages); unsupported codes fall back to `'en'`. Defaults to `'en'`.
-
-This follows the [UPU convention](https://www.upu.int/en/Postal-Solutions/Programmes-Services/Addressing-Solutions) for international mail: the destination country name should appear in the sender's language, making it readable at sorting centres.
-
-```dart
-// Switzerland address with country name in French (sender's language)
-print(AddressFormatter.multiLineFormat({
-  'house_number': '28',
-  'road': 'Avenue Dumas',
-  'city': 'Genève',
-  'postcode': '1206',
-  'country': 'Suisse',
-  'country_code': 'ch',
-}, countryNameLanguageCode: 'fr'));
-// Avenue Dumas 28
-// 1206 Genève
-// Suisse
-
-// Same address with country name in English (default)
-print(AddressFormatter.multiLineFormat({...}, countryNameLanguageCode: 'en'));
-// Avenue Dumas 28
-// 1206 Genève
-// Switzerland
-```
 
 #### `abbreviate` — apply road name abbreviations
 
