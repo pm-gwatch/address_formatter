@@ -1,12 +1,11 @@
 name: address_formatter
-description: Converts address components into correctly formatted postal addresses for countries worldwide, following the OpenCage address-formatting specification.
-version: 0.3.0
+description: Formats address components into human-readable address strings using OpenCage templates for countries worldwide.
+version: 0.4.0
 repository: https://github.com/pm-gwatch/address_formatter
 
 environment:
   sdk: ^3.0.0
 
-# Add regular dependencies here.
 dependencies:
   mustache_template: ^2.0.5
 

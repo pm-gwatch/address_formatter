@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+- Removed the `AddressFormatter` class and its `format` (`List<String>`), `multiLineFormat`, and `singleLineFormat` methods.
+- Added top-level `formatAddress`, which returns a multi-line `String`.
+- Added top-level `formatAddressSingleLine`, which returns a comma-separated `String`.
+
 ## 0.3.0
 
 - Removed the `formatLanguageCode` parameter. Language-specific format templates (e.g. selecting a Chinese vs. English layout for Taiwan) are no longer supported; the country default is always used, consistent with other implementations of the OpenCage spec.
