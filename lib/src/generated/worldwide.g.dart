@@ -28,7 +28,6 @@ const Map<String, String> kAddressTemplates = {
 {{{archipelago}}}
 {{{country}}}
 ''',
-
   'generic2': '''
 {{{attention}}}
 {{{house}}}, {{{quarter}}}
@@ -36,7 +35,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}} {{{postcode}}}
 {{#first}} {{{country}}} || {{{state}}} {{/first}}
 ''',
-
   'generic3': '''
 {{{attention}}}
 {{{house}}}
@@ -45,7 +43,6 @@ const Map<String, String> kAddressTemplates = {
 {{{postcode}}} {{#first}} {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{city}}} || {{{municipality}}} || {{{state}}} {{/first}}
 {{{country}}}
 ''',
-
   'generic4': '''
 {{{attention}}}
 {{{house}}}
@@ -54,7 +51,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{suburb}}} || {{{municipality}}} || {{{county}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
 {{{country}}}
 ''',
-
   'generic5': '''
 {{{attention}}}
 {{{house}}}
@@ -63,7 +59,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{state_district}}} || {{{state}}} {{/first}}
 {{{country}}}
 ''',
-
   'generic6': '''
 {{{attention}}}
 {{{house}}}
@@ -73,7 +68,6 @@ const Map<String, String> kAddressTemplates = {
 {{{state}}}
 {{{country}}}
 ''',
-
   'generic7': '''
 {{{attention}}}
 {{{house}}}
@@ -81,7 +75,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}}{{/first}}, {{{postcode}}}
 {{{country}}}
 ''',
-
   'generic8': '''
 {{{attention}}}
 {{{house}}}
@@ -89,7 +82,6 @@ const Map<String, String> kAddressTemplates = {
 {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{county_code}}} || {{{county}}} {{/first}}
 {{{country}}}
 ''',
-
   'generic9': '''
 {{{attention}}}
 {{{house}}}
@@ -98,7 +90,6 @@ const Map<String, String> kAddressTemplates = {
 {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
 {{{country}}}
 ''',
-
   'generic10': '''
 {{{attention}}}
 {{{house}}}
@@ -109,7 +100,6 @@ const Map<String, String> kAddressTemplates = {
 {{{country}}}
 {{{postcode}}}
 ''',
-
   'generic11': '''
 {{{country}}}
 {{{state}}}
@@ -119,7 +109,6 @@ const Map<String, String> kAddressTemplates = {
 {{{house}}}
 {{{attention}}}
 ''',
-
   'generic12': '''
 {{{attention}}}
 {{{house}}}
@@ -129,7 +118,6 @@ const Map<String, String> kAddressTemplates = {
 {{{state}}}
 {{{country}}}
 ''',
-
   'generic13': '''
 {{{attention}}}
 {{{house}}}
@@ -137,7 +125,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{suburb}}} || {{{city_district}}} || {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} || {{{region}}} {{/first}} {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
 {{{country}}}
 ''',
-
   'generic14': '''
 {{{attention}}}
 {{{house}}}
@@ -146,7 +133,6 @@ const Map<String, String> kAddressTemplates = {
 {{{state}}}
 {{{country}}}
 ''',
-
   'generic15': '''
 {{{attention}}}
 {{{house}}}
@@ -154,7 +140,6 @@ const Map<String, String> kAddressTemplates = {
 {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{state}}} || {{{county}}} {{/first}}
 {{{country}}}
 ''',
-
   'generic16': '''
 {{{attention}}}
 {{{house}}}
@@ -162,7 +147,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
 {{{country}}}
 ''',
-
   'generic17': '''
 {{{attention}}}
 {{{house}}}
@@ -170,7 +154,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
 {{{country}}}
 ''',
-
   'generic18': '''
 {{{attention}}}
 {{{house}}}
@@ -178,7 +161,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{state}}} {{/first}}
 {{{country}}}
 ''',
-
   'generic19': '''
 {{{attention}}}
 {{{house}}}
@@ -187,7 +169,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
 {{{country}}}
 ''',
-
   'generic20': '''
 {{{attention}}}
 {{{house}}}
@@ -196,7 +177,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
 {{{country}}}
 ''',
-
   'generic21': '''
 {{{attention}}}
 {{{house}}}
@@ -205,7 +185,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
 {{{country}}}
 ''',
-
   'generic22': '''
 {{{attention}}}
 {{{house}}}
@@ -213,7 +192,6 @@ const Map<String, String> kAddressTemplates = {
 {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
 {{{country}}}
 ''',
-
   'generic23': '''
 {{{attention}}}
 {{{house}}}
@@ -223,7 +201,6 @@ const Map<String, String> kAddressTemplates = {
 {{{postcode}}}
 {{#first}} {{{country}}} || {{{state}}} {{/first}}
 ''',
-
   'fallback1': '''
 {{{attention}}}
 {{{house}}}
@@ -234,7 +211,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} || {{{region}}} || {{{island}}}, {{{archipelago}}} {{/first}}
 {{{country}}}
 ''',
-
   'fallback2': '''
 {{{attention}}}
 {{{house}}}
@@ -244,7 +220,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} || {{{county}}} || {{{island}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state}}} || {{{state_code}}} {{/first}}
 {{{country}}}
 ''',
-
   'fallback3': '''
 {{{attention}}}
 {{{house}}}
@@ -257,7 +232,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{state}}} || {{{state_code}}} {{/first}}
 {{{country}}}
 ''',
-
   'fallback4': '''
 {{{attention}}}
 {{{house}}}
@@ -268,7 +242,6 @@ const Map<String, String> kAddressTemplates = {
 {{#first}} {{{state}}} || {{{county}}} {{/first}}
 {{{country}}}
 ''',
-
 };
 
 /// Per-country (and per-language-variant) address format entries.
@@ -285,11 +258,9 @@ const Map<String, Map<String, Object>> kAddressCountries = {
     'address_template': 'generic1',
     'fallback_template': 'fallback1',
   },
-
   'AD': {
     'address_template': 'generic3',
   },
-
   'AE': {
     'address_template': '''
 {{{attention}}}
@@ -301,15 +272,12 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'AF': {
     'address_template': 'generic21',
   },
-
   'AG': {
     'address_template': 'generic16',
   },
-
   'AI': {
     'address_template': '''
 {{{attention}}}
@@ -319,7 +287,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{postcode}}} {{{country}}}
 ''',
   },
-
   'AL': {
     'address_template': '''
 {{{attention}}}
@@ -330,7 +297,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'AM': {
     'address_template': '''
 {{{attention}}}
@@ -342,11 +308,9 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'AO': {
     'address_template': 'generic7',
   },
-
   'AQ': {
     'address_template': '''
 {{{house}}}
@@ -359,7 +323,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{#first}} {{{country}}} || {{{continent}}} {{/first}}
 ''',
   },
-
   'AR': {
     'address_template': 'generic9',
     'replace': <List<String>>[
@@ -369,45 +332,36 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['\n(\\w\\d{4})(\\w{3}) ', '\n\$1 \$2 '],
     ],
   },
-
   'AS': {
     'use_country': 'US',
     'change_country': 'United States of America',
     'add_component': 'state=American Samoa',
   },
-
   'AT': {
     'address_template': 'generic1',
     'replace': <List<String>>[
       ['^Politischer Bezirk ', ''],
     ],
   },
-
   'AU': {
     'address_template': 'generic13',
   },
-
   'AW': {
     'address_template': 'generic17',
   },
-
   'AX': {
     'use_country': 'FI',
     'change_country': 'Åland, Finland',
   },
-
   'AZ': {
     'address_template': 'generic3',
   },
-
   'BA': {
     'address_template': 'generic1',
   },
-
   'BB': {
     'address_template': 'generic16',
   },
-
   'BD': {
     'address_template': '''
 {{{attention}}}
@@ -418,7 +372,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'BE': {
     'address_template': '''
 {{{attention}}}
@@ -429,36 +382,28 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'BF': {
     'address_template': 'generic6',
   },
-
   'BG': {
     'address_template': 'generic19',
   },
-
   'BH': {
     'address_template': 'generic2',
   },
-
   'BI': {
     'address_template': 'generic17',
   },
-
   'BJ': {
     'address_template': 'generic18',
   },
-
   'BL': {
     'use_country': 'FR',
     'change_country': 'Saint-Barthélemy, France',
   },
-
   'BM': {
     'address_template': 'generic2',
   },
-
   'BN': {
     'address_template': '''
 {{{attention}}}
@@ -469,19 +414,16 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'BO': {
     'address_template': 'generic17',
     'replace': <List<String>>[
       ['^Municipio Nuestra Senora de ', ''],
     ],
   },
-
   'BQ': {
     'use_country': 'NL',
     'change_country': 'Caribbean Netherlands',
   },
-
   'BR': {
     'address_template': '''
 {{{attention}}}
@@ -496,7 +438,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['\\b(\\d{5})(\\d{3})\\b', '\$1-\$2'],
     ],
   },
-
   'BS': {
     'address_template': '''
 {{{attention}}}
@@ -507,7 +448,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'BT': {
     'address_template': '''
 {{{attention}}}
@@ -518,12 +458,10 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'BV': {
     'use_country': 'NO',
     'change_country': 'Bouvet Island, Norway',
   },
-
   'BW': {
     'address_template': '''
 {{{attention}}}
@@ -534,15 +472,12 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'BY': {
     'address_template': 'generic11',
   },
-
   'BZ': {
     'address_template': 'generic16',
   },
-
   'CA': {
     'address_template': '''
 {{{attention}}}
@@ -559,10 +494,12 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
     'postformat_replace': <List<String>>[
-      [' ([A-Za-z]{2}) ([A-Za-z]\\d[A-Za-z])(\\d[A-Za-z]\\d)\n', ' \$1 \$2 \$3\n'],
+      [
+        ' ([A-Za-z]{2}) ([A-Za-z]\\d[A-Za-z])(\\d[A-Za-z]\\d)\n',
+        ' \$1 \$2 \$3\n'
+      ],
     ],
   },
-
   'CA_en': {
     'address_template': '''
 {{{attention}}}
@@ -579,10 +516,12 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
     'postformat_replace': <List<String>>[
-      [' ([A-Za-z]{2}) ([A-Za-z]\\d[A-Za-z])(\\d[A-Za-z]\\d)\n', ' \$1 \$2 \$3\n'],
+      [
+        ' ([A-Za-z]{2}) ([A-Za-z]\\d[A-Za-z])(\\d[A-Za-z]\\d)\n',
+        ' \$1 \$2 \$3\n'
+      ],
     ],
   },
-
   'CA_fr': {
     'address_template': '''
 {{{attention}}}
@@ -592,27 +531,25 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
     'postformat_replace': <List<String>>[
-      [' ([A-Za-z]{2}) ([A-Za-z]\\d[A-Za-z])(\\d[A-Za-z]\\d)\n', ' \$1 \$2 \$3\n'],
+      [
+        ' ([A-Za-z]{2}) ([A-Za-z]\\d[A-Za-z])(\\d[A-Za-z]\\d)\n',
+        ' \$1 \$2 \$3\n'
+      ],
     ],
   },
-
   'CC': {
     'use_country': 'AU',
     'change_country': 'Australia',
   },
-
   'CD': {
     'address_template': 'generic18',
   },
-
   'CF': {
     'address_template': 'generic17',
   },
-
   'CG': {
     'address_template': 'generic18',
   },
-
   'CH': {
     'address_template': '''
 {{{attention}}}
@@ -628,15 +565,12 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       [' administrative region', ''],
     ],
   },
-
   'CI': {
     'address_template': 'generic16',
   },
-
   'CK': {
     'address_template': 'generic16',
   },
-
   'CL': {
     'address_template': '''
 {{{attention}}}
@@ -647,11 +581,9 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'CM': {
     'address_template': 'generic17',
   },
-
   'CN': {
     'address_template': '''
 {{{postcode}}} {{{country}}}
@@ -664,7 +596,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{attention}}}
 ''',
   },
-
   'CN_en': {
     'address_template': '''
 {{{attention}}}
@@ -677,7 +608,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}} {{{postcode}}}
 ''',
   },
-
   'CN_zh': {
     'address_template': '''
 {{{postcode}}} {{{country}}}
@@ -690,7 +620,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{attention}}}
 ''',
   },
-
   'CO': {
     'address_template': '''
 {{{attention}}}
@@ -706,7 +635,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['(Bogot[áa]), Bogot[áa]', '\$1'],
     ],
   },
-
   'CR': {
     'address_template': '''
 {{{attention}}}
@@ -716,32 +644,26 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{postcode}}} {{{country}}}
 ''',
   },
-
   'CU': {
     'address_template': 'generic7',
   },
-
   'CV': {
     'address_template': 'generic1',
     'postformat_replace': <List<String>>[
       ['\n(\\d{4}) ([^,]*)\n', '\n\$1-\$2\n'],
     ],
   },
-
   'CW': {
     'address_template': 'generic17',
   },
-
   'CX': {
     'use_country': 'AU',
     'change_country': 'Australia',
     'add_component': 'state=Christmas Island',
   },
-
   'CY': {
     'address_template': 'generic1',
   },
-
   'CZ': {
     'address_template': 'generic1',
     'replace': <List<String>>[
@@ -751,7 +673,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['\n(\\d{3})(\\d{2}) ', '\n\$1 \$2 '],
     ],
   },
-
   'DE': {
     'address_template': '''
 {{{attention}}}
@@ -792,14 +713,12 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['Hamburg\nHamburg', 'Hamburg'],
     ],
   },
-
   'DJ': {
     'address_template': 'generic16',
     'replace': <List<String>>[
       ['city=Djibouti', 'Djibouti-Ville'],
     ],
   },
-
   'DK': {
     'address_template': 'generic1',
     'replace': <List<String>>[
@@ -807,11 +726,9 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['^Region of ', ''],
     ],
   },
-
   'DM': {
     'address_template': 'generic16',
   },
-
   'DO': {
     'address_template': '''
 {{{attention}}}
@@ -826,11 +743,9 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       [', Distrito Nacional', ', DN'],
     ],
   },
-
   'DZ': {
     'address_template': 'generic3',
   },
-
   'EC': {
     'address_template': '''
 {{{attention}}}
@@ -841,7 +756,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'EG': {
     'address_template': '''
 {{{attention}}}
@@ -853,19 +767,15 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'EE': {
     'address_template': 'generic1',
   },
-
   'EH': {
     'address_template': 'generic17',
   },
-
   'ER': {
     'address_template': 'generic17',
   },
-
   'ES': {
     'address_template': 'generic15',
     'fallback_template': 'fallback4',
@@ -875,24 +785,19 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['^Community of ', ''],
     ],
   },
-
   'ET': {
     'address_template': 'generic1',
   },
-
   'FI': {
     'address_template': 'generic1',
   },
-
   'FJ': {
     'address_template': 'generic16',
   },
-
   'FK': {
     'use_country': 'GB',
     'change_country': 'Falkland Islands, United Kingdom',
   },
-
   'FM': {
     'address_template': 'generic4',
     'fallback_template': 'fallback2',
@@ -903,18 +808,19 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['KSA 96944', 'FM 96944'],
     ],
   },
-
   'FO': {
     'address_template': 'generic1',
     'postformat_replace': <List<String>>[
       ['Territorial waters of Faroe Islands', 'Faroe Islands'],
     ],
   },
-
   'FR': {
     'address_template': 'generic3',
     'replace': <List<String>>[
-      ['Polynésie française, Îles du Vent \\(eaux territoriales\\)', 'Polynésie française'],
+      [
+        'Polynésie française, Îles du Vent \\(eaux territoriales\\)',
+        'Polynésie française'
+      ],
       ['France, Mayotte \\(eaux territoriales\\)', 'Mayotte, France'],
       ['France, La Réunion \\(eaux territoriales\\)', 'La Réunion, France'],
       ['Grande Terre et récifs d\'Entrecasteaux', ''],
@@ -924,7 +830,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['Paris (\\d+)(\\w+) Arrondissement\$', 'Paris'],
     ],
   },
-
   'GA': {
     'address_template': '''
 {{{attention}}}
@@ -935,7 +840,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'GB': {
     'address_template': 'generic23',
     'fallback_template': 'fallback3',
@@ -958,54 +862,42 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['London\nEngland\nUnited Kingdom', 'London\nUnited Kingdom'],
     ],
   },
-
   'GD': {
     'address_template': 'generic17',
   },
-
   'GE': {
     'address_template': 'generic1',
   },
-
   'GF': {
     'use_country': 'FR',
     'change_country': 'France',
   },
-
   'GG': {
     'use_country': 'GB',
     'change_country': 'Guernsey, Channel Islands',
   },
-
   'GH': {
     'address_template': 'generic16',
   },
-
   'GI': {
     'address_template': 'generic16',
   },
-
   'GL': {
     'address_template': 'generic1',
   },
-
   'GM': {
     'address_template': 'generic16',
   },
-
   'GN': {
     'address_template': 'generic14',
   },
-
   'GP': {
     'use_country': 'FR',
     'change_country': 'Guadeloupe, France',
   },
-
   'GQ': {
     'address_template': 'generic17',
   },
-
   'GR': {
     'address_template': 'generic1',
     'replace': <List<String>>[
@@ -1016,13 +908,11 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['\n(\\d{3})(\\d{2}) ', '\n\$1 \$2 '],
     ],
   },
-
   'GS': {
     'use_country': 'GB',
     'change_country': 'United Kingdom',
     'add_component': 'county=South Georgia',
   },
-
   'GT': {
     'address_template': '''
 {{{attention}}}
@@ -1036,21 +926,17 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['\n -', '\n'],
     ],
   },
-
   'GU': {
     'use_country': 'US',
     'change_country': 'United States of America',
     'add_component': 'state=Guam',
   },
-
   'GW': {
     'address_template': 'generic1',
   },
-
   'GY': {
     'address_template': 'generic16',
   },
-
   'HK': {
     'address_template': '''
 {{{attention}}}
@@ -1060,7 +946,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{#first}} {{{state}}} || {{{country}}} {{/first}}
 ''',
   },
-
   'HK_en': {
     'address_template': '''
 {{{attention}}}
@@ -1071,7 +956,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'HK_zh': {
     'address_template': '''
 {{{country}}}
@@ -1083,28 +967,23 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{attention}}}
 ''',
   },
-
   'HM': {
     'use_country': 'AU',
     'change_country': 'Australia',
     'add_component': 'state=Heard Island and McDonald Islands',
   },
-
   'HN': {
     'address_template': 'generic1',
   },
-
   'HR': {
     'address_template': 'generic1',
   },
-
   'HT': {
     'address_template': 'generic1',
     'postformat_replace': <List<String>>[
       [' Commune de ', ' '],
     ],
   },
-
   'HU': {
     'address_template': '''
 {{{attention}}}
@@ -1116,7 +995,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['\n.\n', '\n'],
     ],
   },
-
   'ID': {
     'address_template': '''
 {{{attention}}}
@@ -1128,7 +1006,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'IE': {
     'address_template': '''
 {{{attention}}}
@@ -1154,30 +1031,28 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['Kilkenny\nCounty Kilkenny', 'Kilkenny'],
       ['Limerick\nCounty Limerick', 'Limerick'],
       ['Tipperary\nCounty Tipperary', 'Tipperary'],
-      ['\n(([AC-FHKNPRTV-Y][0-9]{2}|D6W))[ -]?([0-9AC-FHKNPRTV-Y]{4})', '\n\$1 \$3'],
+      [
+        '\n(([AC-FHKNPRTV-Y][0-9]{2}|D6W))[ -]?([0-9AC-FHKNPRTV-Y]{4})',
+        '\n\$1 \$3'
+      ],
     ],
   },
-
   'IL': {
     'address_template': 'generic1',
   },
-
   'IM': {
     'use_country': 'GB',
   },
-
   'IN': {
     'address_template': 'generic12',
     'postformat_replace': <List<String>>[
       [' -\n', '\n'],
     ],
   },
-
   'IO': {
     'use_country': 'GB',
     'change_country': 'British Indian Ocean Territory, United Kingdom',
   },
-
   'IQ': {
     'address_template': '''
 {{{attention}}}
@@ -1189,7 +1064,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'IR': {
     'address_template': '''
 {{{attention}}}
@@ -1203,7 +1077,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'IR_en': {
     'address_template': '''
 {{{attention}}}
@@ -1217,7 +1090,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'IR_fa': {
     'address_template': '''
 {{{country}}}
@@ -1233,11 +1105,9 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{postcode}}}
 ''',
   },
-
   'IS': {
     'address_template': 'generic1',
   },
-
   'IT': {
     'address_template': 'generic8',
     'replace': <List<String>>[
@@ -1251,20 +1121,16 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['Città del Vaticano\nCittà del Vaticano\$', 'Città del Vaticano\n'],
     ],
   },
-
   'JE': {
     'use_country': 'GB',
     'change_country': 'Jersey, Channel Islands',
   },
-
   'JM': {
     'address_template': 'generic20',
   },
-
   'JO': {
     'address_template': 'generic1',
   },
-
   'JP': {
     'address_template': '''
 {{{attention}}}
@@ -1278,7 +1144,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       [' (\\d{3})(\\d{4})\n', ' \$1-\$2\n'],
     ],
   },
-
   'JP_en': {
     'address_template': '''
 {{{attention}}}
@@ -1292,7 +1157,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       [' (\\d{3})(\\d{4})\n', ' \$1-\$2\n'],
     ],
   },
-
   'JP_ja': {
     'address_template': '''
 {{{country}}}
@@ -1309,7 +1173,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       [' (\\d{3})(\\d{4})\n', ' \$1-\$2\n'],
     ],
   },
-
   'KE': {
     'address_template': '''
 {{{attention}}}
@@ -1320,19 +1183,15 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'KG': {
     'address_template': 'generic11',
   },
-
   'KH': {
     'address_template': 'generic20',
   },
-
   'KI': {
     'address_template': 'generic17',
   },
-
   'KM': {
     'address_template': '''
 {{{attention}}}
@@ -1343,7 +1202,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'KN': {
     'address_template': '''
 {{{attention}}}
@@ -1353,11 +1211,9 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'KP': {
     'address_template': 'generic21',
   },
-
   'KR': {
     'address_template': '''
 {{{country}}}
@@ -1371,7 +1227,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{attention}}}
 ''',
   },
-
   'KR_en': {
     'address_template': '''
 {{{attention}}}
@@ -1382,7 +1237,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'KR_ko': {
     'address_template': '''
 {{{country}}}
@@ -1396,7 +1250,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{attention}}}
 ''',
   },
-
   'KW': {
     'address_template': '''
 {{{attention}}}
@@ -1408,66 +1261,51 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'KY': {
     'address_template': 'generic2',
   },
-
   'KZ': {
     'address_template': 'generic11',
   },
-
   'LA': {
     'address_template': 'generic22',
   },
-
   'LB': {
     'address_template': 'generic2',
     'postformat_replace': <List<String>>[
       [' (\\d{4}) (\\d{4})\n', ' \$1 \$2\n'],
     ],
   },
-
   'LC': {
     'address_template': 'generic17',
   },
-
   'LI': {
     'use_country': 'CH',
   },
-
   'LK': {
     'address_template': 'generic20',
   },
-
   'LR': {
     'address_template': 'generic1',
   },
-
   'LS': {
     'address_template': 'generic2',
   },
-
   'LT': {
     'address_template': 'generic1',
   },
-
   'LU': {
     'address_template': 'generic3',
   },
-
   'LV': {
     'address_template': 'generic7',
   },
-
   'LY': {
     'address_template': 'generic17',
   },
-
   'MA': {
     'address_template': 'generic3',
   },
-
   'MC': {
     'address_template': 'generic3',
     'fallback_template': '''
@@ -1483,7 +1321,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['Monaco\nMonaco', 'Monaco'],
     ],
   },
-
   'MD': {
     'address_template': '''
 {{{attention}}}
@@ -1493,16 +1330,13 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'ME': {
     'address_template': 'generic1',
   },
-
   'MF': {
     'use_country': 'FR',
     'change_country': 'France',
   },
-
   'MH': {
     'address_template': 'generic4',
     'fallback_template': 'fallback2',
@@ -1511,7 +1345,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       [', 96070', ', MH 96070'],
     ],
   },
-
   'MG': {
     'address_template': '''
 {{{attention}}}
@@ -1522,15 +1355,12 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'MK': {
     'address_template': 'generic1',
   },
-
   'ML': {
     'address_template': 'generic17',
   },
-
   'MM': {
     'address_template': '''
 {{{attention}}}
@@ -1540,7 +1370,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'MN': {
     'address_template': '''
 {{{attention}}}
@@ -1554,7 +1383,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'MO': {
     'address_template': '''
 {{{attention}}}
@@ -1564,7 +1392,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'MO_pt': {
     'address_template': '''
 {{{attention}}}
@@ -1574,7 +1401,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'MO_zh': {
     'address_template': '''
 {{{country}}}
@@ -1585,17 +1411,14 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{attention}}}
 ''',
   },
-
   'MP': {
     'use_country': 'US',
     'change_country': 'United States of America',
     'add_component': 'state=Northern Mariana Islands',
   },
-
   'MS': {
     'address_template': 'generic16',
   },
-
   'MT': {
     'address_template': '''
 {{{attention}}}
@@ -1606,16 +1429,13 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'MQ': {
     'use_country': 'FR',
     'change_country': 'Martinique, France',
   },
-
   'MR': {
     'address_template': 'generic18',
   },
-
   'MU': {
     'address_template': '''
 {{{attention}}}
@@ -1626,15 +1446,12 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'MV': {
     'address_template': 'generic2',
   },
-
   'MW': {
     'address_template': 'generic16',
   },
-
   'MX': {
     'address_template': '''
 {{{attention}}}
@@ -1645,7 +1462,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'MY': {
     'address_template': '''
 {{{attention}}}
@@ -1657,21 +1473,17 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'MZ': {
     'address_template': 'generic15',
     'fallback_template': 'fallback4',
   },
-
   'NA': {
     'address_template': 'generic2',
   },
-
   'NC': {
     'use_country': 'FR',
     'change_country': 'Nouvelle-Calédonie, France',
   },
-
   'NE': {
     'address_template': '''
 {{{attention}}}
@@ -1682,13 +1494,11 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'NF': {
     'use_country': 'AU',
     'change_country': 'Australia',
     'add_component': 'state=Norfolk Island',
   },
-
   'NG': {
     'address_template': '''
 {{{attention}}}
@@ -1699,11 +1509,9 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'NI': {
     'address_template': 'generic21',
   },
-
   'NL': {
     'address_template': 'generic1',
     'postformat_replace': <List<String>>[
@@ -1711,11 +1519,9 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['\nKoninkrijk der Nederlanden\$', '\nNederland'],
     ],
   },
-
   'NO': {
     'address_template': 'generic1',
   },
-
   'NP': {
     'address_template': '''
 {{{attention}}}
@@ -1726,22 +1532,18 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'NR': {
     'address_template': 'generic16',
   },
-
   'NU': {
     'address_template': 'generic16',
   },
-
   'NZ': {
     'address_template': 'generic20',
     'postformat_replace': <List<String>>[
       ['Wellington\nWellington City', 'Wellington'],
     ],
   },
-
   'OM': {
     'address_template': '''
 {{{attention}}}
@@ -1753,7 +1555,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'PA': {
     'address_template': '''
 {{{attention}}}
@@ -1770,19 +1571,19 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['city=Panamá\$', 'Ciudad de Panamá'],
     ],
   },
-
   'PE': {
     'address_template': 'generic19',
   },
-
   'PF': {
     'use_country': 'FR',
     'change_country': 'Polynésie française, France',
     'replace': <List<String>>[
-      ['Polynésie française, Îles du Vent \\(eaux territoriales\\)', 'Polynésie française'],
+      [
+        'Polynésie française, Îles du Vent \\(eaux territoriales\\)',
+        'Polynésie française'
+      ],
     ],
   },
-
   'PG': {
     'address_template': '''
 {{{attention}}}
@@ -1792,7 +1593,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'PH': {
     'address_template': '''
 {{{attention}}}
@@ -1802,7 +1602,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'PK': {
     'address_template': '''
 {{{attention}}}
@@ -1813,19 +1612,16 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'PL': {
     'address_template': 'generic1',
     'postformat_replace': <List<String>>[
       ['\n(\\d{2})(\\w{3}) ', '\n\$1-\$2 '],
     ],
   },
-
   'PM': {
     'use_country': 'FR',
     'change_country': 'Saint-Pierre-et-Miquelon, France',
   },
-
   'PN': {
     'address_template': '''
 {{{attention}}}
@@ -1834,49 +1630,39 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'PR': {
     'use_country': 'US',
     'change_country': 'United States of America',
     'add_component': 'state=Puerto Rico',
   },
-
   'PS': {
     'use_country': 'IL',
   },
-
   'PT': {
     'address_template': 'generic1',
     'postformat_replace': <List<String>>[
       ['\n(\\d{4})(\\d{3}) ', '\n\$1-\$2 '],
     ],
   },
-
   'PW': {
     'address_template': 'generic1',
   },
-
   'PY': {
     'address_template': 'generic1',
   },
-
   'QA': {
     'address_template': 'generic17',
   },
-
   'RE': {
     'use_country': 'FR',
     'change_country': 'La Réunion, France',
   },
-
   'RO': {
     'address_template': 'generic1',
   },
-
   'RS': {
     'address_template': 'generic1',
   },
-
   'RU': {
     'address_template': 'generic10',
     'fallback_template': '''
@@ -1889,11 +1675,9 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'RW': {
     'address_template': 'generic16',
   },
-
   'SA': {
     'address_template': '''
 {{{attention}}}
@@ -1903,11 +1687,9 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'SB': {
     'address_template': 'generic17',
   },
-
   'SC': {
     'address_template': '''
 {{{attention}}}
@@ -1918,18 +1700,15 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'SD': {
     'address_template': 'generic1',
   },
-
   'SE': {
     'address_template': 'generic1',
     'postformat_replace': <List<String>>[
       ['\n(\\d{3})(\\d{2}) ', '\n\$1 \$2 '],
     ],
   },
-
   'SG': {
     'address_template': '''
 {{{attention}}}
@@ -1938,21 +1717,17 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{#first}} {{{country}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{village}}} || {{{county}}} {{/first}} {{{postcode}}}
 ''',
   },
-
   'SH': {
     'use_country': 'GB',
     'change_country': '\$state, United Kingdom',
   },
-
   'SI': {
     'address_template': 'generic1',
   },
-
   'SJ': {
     'use_country': 'NO',
     'change_country': 'Norway',
   },
-
   'SK': {
     'address_template': '''
 {{{attention}}}
@@ -1969,15 +1744,12 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['\n(\\d{3})(\\d{2}) ', '\n\$1 \$2 '],
     ],
   },
-
   'SL': {
     'address_template': 'generic16',
   },
-
   'SM': {
     'use_country': 'IT',
   },
-
   'SN': {
     'address_template': 'generic3',
     'replace': <List<String>>[
@@ -1986,23 +1758,18 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['^Département de ', ''],
     ],
   },
-
   'SO': {
     'address_template': 'generic21',
   },
-
   'SR': {
     'address_template': 'generic21',
   },
-
   'SS': {
     'address_template': 'generic17',
   },
-
   'ST': {
     'address_template': 'generic17',
   },
-
   'SV': {
     'address_template': '''
 {{{attention}}}
@@ -2016,11 +1783,9 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['\n- ', '\n '],
     ],
   },
-
   'SX': {
     'address_template': 'generic17',
   },
-
   'SY': {
     'address_template': '''
 {{{attention}}}
@@ -2032,7 +1797,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'SZ': {
     'address_template': '''
 {{{attention}}}
@@ -2043,7 +1807,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'TC': {
     'address_template': 'generic23',
     'fallback_template': '''
@@ -2055,20 +1818,16 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'TD': {
     'address_template': 'generic21',
   },
-
   'TF': {
     'use_country': 'FR',
     'change_country': 'Terres australes et antarctiques françaises, France',
   },
-
   'TG': {
     'address_template': 'generic18',
   },
-
   'TH': {
     'address_template': '''
 {{{attention}}}
@@ -2080,36 +1839,28 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'TJ': {
     'address_template': 'generic1',
   },
-
   'TK': {
     'use_country': 'NZ',
     'change_country': 'Tokelau, New Zealand',
   },
-
   'TL': {
     'address_template': 'generic17',
   },
-
   'TM': {
     'address_template': 'generic22',
   },
-
   'TN': {
     'address_template': 'generic3',
   },
-
   'TO': {
     'address_template': 'generic16',
   },
-
   'TR': {
     'address_template': 'generic1',
   },
-
   'TT': {
     'address_template': '''
 {{{attention}}}
@@ -2120,7 +1871,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'TV': {
     'address_template': '''
 {{{attention}}}
@@ -2131,7 +1881,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'TW': {
     'address_template': '''
 {{{country}}}
@@ -2141,7 +1890,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{attention}}}
 ''',
   },
-
   'TW_en': {
     'address_template': '''
 {{{attention}}}
@@ -2151,7 +1899,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'TW_zh': {
     'address_template': '''
 {{{country}}}
@@ -2161,7 +1908,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{attention}}}
 ''',
   },
-
   'TZ': {
     'address_template': 'generic14',
     'fallback_template': 'generic14',
@@ -2169,7 +1915,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['Dar es Salaam\nDar es Salaam', 'Dar es Salaam'],
     ],
   },
-
   'UA': {
     'address_template': '''
 {{{attention}}}
@@ -2182,18 +1927,15 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'UG': {
     'address_template': 'generic16',
   },
-
   'UM': {
     'fallback_template': 'fallback2',
     'use_country': 'US',
     'change_country': 'United States of America',
     'add_component': 'state=US Minor Outlying Islands',
   },
-
   'US': {
     'address_template': 'generic4',
     'fallback_template': 'fallback2',
@@ -2209,7 +1951,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
       ['Township of ', ''],
     ],
   },
-
   'UZ': {
     'address_template': '''
 {{{attention}}}
@@ -2221,19 +1962,15 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{postcode}}}
 ''',
   },
-
   'UY': {
     'address_template': 'generic1',
   },
-
   'VA': {
     'use_country': 'IT',
   },
-
   'VC': {
     'address_template': 'generic17',
   },
-
   'VE': {
     'address_template': '''
 {{{attention}}}
@@ -2243,7 +1980,6 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'VG': {
     'address_template': '''
 {{{attention}}}
@@ -2253,13 +1989,11 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}, {{{postcode}}}
 ''',
   },
-
   'VI': {
     'use_country': 'US',
     'change_country': 'United States of America',
     'add_component': 'state=US Virgin Islands',
   },
-
   'VN': {
     'address_template': '''
 {{{attention}}}
@@ -2271,24 +2005,19 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'VU': {
     'address_template': 'generic17',
   },
-
   'WF': {
     'use_country': 'FR',
     'change_country': 'Wallis-et-Futuna, France',
   },
-
   'WS': {
     'address_template': 'generic17',
   },
-
   'XC': {
     'address_template': 'generic6',
   },
-
   'XK': {
     'address_template': '''
 {{{attention}}}
@@ -2298,16 +2027,13 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'YE': {
     'address_template': 'generic18',
   },
-
   'YT': {
     'use_country': 'FR',
     'change_country': 'Mayotte, France',
   },
-
   'ZA': {
     'address_template': '''
 {{{attention}}}
@@ -2319,13 +2045,10 @@ const Map<String, Map<String, Object>> kAddressCountries = {
 {{{country}}}
 ''',
   },
-
   'ZM': {
     'address_template': 'generic3',
   },
-
   'ZW': {
     'address_template': 'generic16',
   },
-
 };

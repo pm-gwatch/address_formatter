@@ -11,18 +11,20 @@ const _ch = {
   'country_code': 'ch',
 };
 
-// Convenience wrapper: formats [comps] and splits the output into lines.
+// Splits formatAddress's newline-separated String into lines
+// so assertions can check individual address lines.
 List<String> _lines(
   Map<String, dynamic> comps, {
   String? fallbackCountryCode,
   bool appendCountry = true,
   bool abbreviate = false,
-}) => AddressFormatter.multiLineFormat(
-  comps,
-  fallbackCountryCode: fallbackCountryCode,
-  appendCountry: appendCountry,
-  abbreviate: abbreviate,
-).split('\n');
+}) =>
+    formatAddress(
+      comps,
+      fallbackCountryCode: fallbackCountryCode,
+      appendCountry: appendCountry,
+      abbreviate: abbreviate,
+    ).split('\n');
 
 void main() {
   // ── Address format structure ──────────────────────────────────────────────
@@ -175,6 +177,18 @@ void main() {
       expect(lines, contains('221B Baker Street'));
     });
 
+    test('countrycode → country_code (Photon)', () {
+      final lines = _lines({
+        'street': 'Chemin Edouard-Sarasin',
+        'city': 'Le Grand-Saconnex',
+        'postcode': '1218',
+        'countrycode': 'CH',
+      });
+      expect(lines, contains('Chemin Edouard-Sarasin'));
+      expect(lines, contains('1218 Le Grand-Saconnex'));
+      expect(lines, contains('Switzerland'));
+    });
+
     test('suburb → neighbourhood (does not affect city fallback)', () {
       final lines = _lines({
         'road': 'Main Street',
@@ -312,7 +326,7 @@ void main() {
 
   group('postcode normalisation', () {
     test('over-long postcode (>20 chars) is dropped', () {
-      final result = AddressFormatter.multiLineFormat({
+      final result = formatAddress({
         'road': 'Main Street',
         'city': 'Springfield',
         'postcode': '123456789012345678901',
@@ -335,7 +349,7 @@ void main() {
     });
 
     test('semicolon postcode "NNNNN;NNNNN" is dropped entirely', () {
-      final result = AddressFormatter.multiLineFormat({
+      final result = formatAddress({
         'road': 'Rue de la Paix',
         'city': 'Paris',
         'postcode': '75001;75002',
@@ -351,7 +365,7 @@ void main() {
 
   group('URL filtering', () {
     test('component containing a URL is stripped before rendering', () {
-      final result = AddressFormatter.multiLineFormat({
+      final result = formatAddress({
         'road': 'Rue de la Paix',
         'city': 'Paris',
         'website': 'https://example.com',
@@ -423,66 +437,66 @@ void main() {
     });
   });
 
-  // ── format ───────────────────────────────────────────────────────────────
+  // ── formatAddress returns a newline-separated String ──────────────────────
 
-  group('format', () {
-    test('output matches multiLineFormat split on newlines', () {
-      expect(AddressFormatter.format(_ch),
-          equals(AddressFormatter.multiLineFormat(_ch).split('\n')));
+  group('formatAddress', () {
+    test('returns a newline-separated string', () {
+      final result = formatAddress(_ch);
+      expect(result.split('\n'), equals(_lines(_ch)));
     });
 
     test('each line is non-empty', () {
-      expect(AddressFormatter.format(_ch), isNot(contains('')));
+      expect(formatAddress(_ch).split('\n'), isNot(contains('')));
     });
 
     test('country injected from kCountryNames when absent', () {
-      final lines = AddressFormatter.format({
+      final result = formatAddress({
         'road': 'Via Condotti',
         'city': 'Rome',
         'postcode': '00187',
         'country_code': 'it',
       });
-      expect(lines, contains('Italy'));
+      expect(result, contains('Italy'));
     });
 
     test('geocoder-supplied country is preserved as-is', () {
-      final lines = AddressFormatter.format({
+      final result = formatAddress({
         'road': 'Via Condotti',
         'city': 'Rome',
         'postcode': '00187',
         'country': 'Italia',
         'country_code': 'it',
       });
-      expect(lines, contains('Italia'));
-      expect(lines, isNot(contains('Italy')));
+      expect(result, contains('Italia'));
+      expect(result, isNot(contains('Italy')));
     });
 
-    test('forwards appendCountry: false → no country line', () {
-      final lines = AddressFormatter.format(_ch, appendCountry: false);
-      expect(lines, isNot(anyElement(contains('Switzerland'))));
+    test('appendCountry: false omits the country from the string', () {
+      final result = formatAddress(_ch, appendCountry: false);
+      expect(result, isNot(contains('Switzerland')));
     });
   });
 
-  // ── singleLineFormat ──────────────────────────────────────────────────────
+  group('formatAddressSingleLine', () {
+    test('joins formatAddress lines with ", "', () {
+      expect(
+        formatAddressSingleLine(_ch),
+        equals(formatAddress(_ch).split('\n').join(', ')),
+      );
+    });
 
-  group('singleLineFormat', () {
-    test('CH: lines joined with commas on a single line', () {
-      final result = AddressFormatter.singleLineFormat(_ch);
+    test('CH: one line with road, postcode city, and country', () {
+      final result = formatAddressSingleLine(_ch);
       expect(result.split('\n'), hasLength(1));
       expect(result, contains('Avenue Dumas 28'));
       expect(result, contains('1206 Genève'));
       expect(result, contains('Switzerland'));
     });
 
-    test('output matches format joined with ", "', () {
-      expect(AddressFormatter.singleLineFormat(_ch),
-          equals(AddressFormatter.format(_ch).join(', ')));
-    });
-
-    test('forwards appendCountry: false → country absent from output', () {
-      final result = AddressFormatter.singleLineFormat(_ch, appendCountry: false);
+    test('appendCountry: false omits the country', () {
+      final result = formatAddressSingleLine(_ch, appendCountry: false);
       expect(result, isNot(contains('Switzerland')));
-      expect(result, isNot(contains('Suisse')));
+      expect(result, contains('Avenue Dumas 28'));
     });
   });
 }

@@ -17,7 +17,11 @@ const Map<String, Map<String, Map<String, String>>> kCountyCodes = {
     'AB': {'default': 'Albacete'},
     'AL': {'default': 'Almería'},
     'AV': {'default': 'Ávila'},
-    'B': {'default': 'Barcelonés', 'alt_ca': 'Barcelonès', 'alt_en': 'Barcelona'},
+    'B': {
+      'default': 'Barcelonés',
+      'alt_ca': 'Barcelonès',
+      'alt_en': 'Barcelona'
+    },
     'BA': {'default': 'Badajoz'},
     'BI': {'default': 'Vizcaya'},
     'BU': {'default': 'Burgos'},
@@ -376,7 +380,12 @@ const Map<String, Map<String, Map<String, String>>> kCountyCodes = {
     'BR': {'default': 'Brindisi'},
     'BS': {'default': 'Brescia'},
     'BT': {'default': 'Barletta-Andria-Trani'},
-    'BZ': {'default': 'Bolzano - Bozen', 'alt_de': 'Südtirol', 'alt_en': 'South Tyrol', 'alt_it': 'Bolzano'},
+    'BZ': {
+      'default': 'Bolzano - Bozen',
+      'alt_de': 'Südtirol',
+      'alt_en': 'South Tyrol',
+      'alt_it': 'Bolzano'
+    },
     'CA': {'default': 'Cagliari'},
     'CB': {'default': 'Campobasso'},
     'CE': {'default': 'Caserta'},
@@ -468,7 +477,10 @@ const Map<String, Map<String, Map<String, String>>> kCountyCodes = {
     'CL': {'default': 'Canton Clervaux', 'alt_de': 'Kanton Clerf'},
     'DI': {'default': 'Canton Diekirch', 'alt_de': 'Kanton Diekirch'},
     'EC': {'default': 'Canton Echternach', 'alt_de': 'Kanton Echternach'},
-    'ES': {'default': 'Canton Esch-sur-Alzette', 'alt_de': 'Kanton Esch an der Alzette'},
+    'ES': {
+      'default': 'Canton Esch-sur-Alzette',
+      'alt_de': 'Kanton Esch an der Alzette'
+    },
     'GR': {'default': 'Canton Grevenmacher', 'alt_de': 'Kanton Grevenmacher'},
     'LU': {'default': 'Canton Luxembourg', 'alt_de': 'Kanton Luxemburg'},
     'ME': {'default': 'Canton Mersch', 'alt_de': 'Kanton Mersch'},
@@ -800,7 +812,10 @@ const Map<String, Map<String, Map<String, String>>> kCountyCodes = {
     'K': {'default': 'Blekinge län', 'alt_en': 'Blekinge County'},
     'M': {'default': 'Skåne län', 'alt_en': 'Skåne County'},
     'N': {'default': 'Hallands län', 'alt_en': 'Halland County'},
-    'O': {'default': 'Västra Götalands län', 'alt_en': 'Västra Götaland County'},
+    'O': {
+      'default': 'Västra Götalands län',
+      'alt_en': 'Västra Götaland County'
+    },
     'S': {'default': 'Värmlands län', 'alt_en': 'Värmland County'},
     'T': {'default': 'Örebro län', 'alt_en': 'Örebro County'},
     'U': {'default': 'Västmanlands län', 'alt_en': 'Västmanland County'},

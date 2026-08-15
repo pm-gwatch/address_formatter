@@ -2,10 +2,9 @@ import 'dart:convert';
 import 'package:address_formatter/address_formatter.dart';
 import 'package:http/http.dart' as http;
 
-// Example usages of the AddressFormatter package to format addresses from
-// the Nominatim search API. The `addressdetails=1` query parameter is required
-// to ensure that the response includes the `address` field that contains the
-// address components.
+// Example usages of the package to format addresses from the Nominatim
+// search API. The `addressdetails=1` query parameter is required so the
+// response includes an `address` map of components.
 // See https://nominatim.org/release-docs/develop/api/Search/.
 //
 // The "smallest-to-largest" order of address components is commonly used
@@ -17,42 +16,40 @@ import 'package:http/http.dart' as http;
 void main() async {
   print('Chicago City Hall:');
 
-  // Free-form search query for the address of Chicago City Hall.
   final nominatimUri = Uri.https('nominatim.openstreetmap.org', '/search', {
     'q': 'chicago+town+hall',
     'addressdetails': '1',
-    'format': 'jsonv2',
+    'format': 'geojson',
   });
 
   final nominatimResponse =
       await http.get(nominatimUri, headers: {'User-Agent': 'dart_example'});
 
   if (nominatimResponse.statusCode == 200) {
-    // Parse the JSON response.
-    final places = jsonDecode(nominatimResponse.body) as List<dynamic>;
+    final collection =
+        jsonDecode(nominatimResponse.body) as Map<String, dynamic>;
+    final features = collection['features'] as List<dynamic>;
 
-    // In order to sort through the results returned by the API, search for the
-    // first result whose "category" and "type" are equal to "amenity" and
-    // "townhall", respectively.
+    // Prefer the town hall amenity when Nominatim returns several places.
     // See https://wiki.openstreetmap.org/wiki/Map_features#Primary_features
-    final chicagoTownHall = places.firstWhere(
-      (place) =>
-          place?['category'] == 'amenity' &&
-          place?['type'] as String == 'townhall',
-      orElse: () => null,
+    final chicagoTownHall = features.cast<Map<String, dynamic>>().firstWhere(
+      (feature) {
+        final properties = feature['properties'] as Map<String, dynamic>?;
+        return properties?['category'] == 'amenity' &&
+            properties?['type'] == 'townhall';
+      },
+      orElse: () => features.isEmpty
+          ? <String, dynamic>{}
+          : features.first as Map<String, dynamic>,
     );
 
-    if (chicagoTownHall == null) {
+    final chicagoAddress = (chicagoTownHall['properties']
+        as Map<String, dynamic>?)?['address'] as Map<String, dynamic>?;
+    if (chicagoAddress == null) {
       print('No relevant result found in the Nominatim API response.');
     } else {
-      // Format the postal address using the components contained in the value
-      // of the `address` field.
-      final chicagoTownHallAddressComponents =
-          chicagoTownHall['address'] as Map<String, dynamic>;
-      final chicagoTownHallAddress =
-          AddressFormatter.multiLineFormat(chicagoTownHallAddressComponents);
-      print(chicagoTownHallAddress);
-      // 121 North LaSalle Street
+      print(formatAddress(chicagoAddress, abbreviate: true));
+      // 121 North LaSalle St
       // Chicago, IL 60602
       // United States of America
     }
@@ -63,39 +60,37 @@ void main() async {
 
   print('\nThe Palace Museum (Beijing):');
 
-  // Free-form search query for the address of the Palace Museum of Beijing.
   final palaceMuseumUri = Uri.https('nominatim.openstreetmap.org', '/search', {
     'q': 'palace+museum+beijing',
     'addressdetails': '1',
-    'format': 'jsonv2',
+    'format': 'geojson',
   });
 
   final palaceMuseumResponse =
       await http.get(palaceMuseumUri, headers: {'User-Agent': 'dart_example'});
 
   if (palaceMuseumResponse.statusCode == 200) {
-    final places = jsonDecode(palaceMuseumResponse.body) as List<dynamic>;
+    final collection =
+        jsonDecode(palaceMuseumResponse.body) as Map<String, dynamic>;
+    final features = collection['features'] as List<dynamic>;
 
-    // In order to sort through the results returned by the API, search for the
-    // first one whose "category" and "type" are equal to "tourism" and
-    // "museum", respectively.
-    final palaceMuseum = places.firstWhere(
-      (place) =>
-          place?['category'] == 'tourism' &&
-          place?['type'] as String == 'museum',
-      orElse: () => null,
+    final palaceMuseum = features.cast<Map<String, dynamic>>().firstWhere(
+      (feature) {
+        final properties = feature['properties'] as Map<String, dynamic>?;
+        return properties?['category'] == 'tourism' &&
+            properties?['type'] == 'museum';
+      },
+      orElse: () => features.isEmpty
+          ? <String, dynamic>{}
+          : features.first as Map<String, dynamic>,
     );
 
-    if (palaceMuseum == null) {
+    final palaceAddress = (palaceMuseum['properties']
+        as Map<String, dynamic>?)?['address'] as Map<String, dynamic>?;
+    if (palaceAddress == null) {
       print('No relevant result found in the Nominatim API response.');
     } else {
-      // Format the postal address using the components contained in the value
-      // of the `address` field.
-      final palaceMuseumAddressComponents =
-          palaceMuseum['address'] as Map<String, dynamic>;
-      final palaceMuseumAddress =
-          AddressFormatter.multiLineFormat(palaceMuseumAddressComponents);
-      print(palaceMuseumAddress);
+      print(formatAddress(palaceAddress));
       // 100010 中国
       // 东城区
       // 东华门街道
