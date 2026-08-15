@@ -93,7 +93,10 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
   'AR': {
     'A': {'default': 'Salta'},
     'B': {'default': 'Buenos Aires'},
-    'C': {'default': 'Ciudad Autónoma de Buenos Aires', 'alt_en': 'Autonomous City of Buenos Aires'},
+    'C': {
+      'default': 'Ciudad Autónoma de Buenos Aires',
+      'alt_en': 'Autonomous City of Buenos Aires'
+    },
     'D': {'default': 'San Luis'},
     'E': {'default': 'Entre Ríos', 'alt_en': 'Entre Ríos Province'},
     'F': {'default': 'La Rioja'},
@@ -235,16 +238,44 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
     'G': {'default': 'সিলেট বিভাগ', 'alt_en': 'Sylhet Division'},
   },
   'BE': {
-    'BRU': {'default': 'Bruxelles-Capitale', 'alt_de': 'Brüssel-Hauptstadt', 'alt_en': 'Brussels-Capital', 'alt_nl': 'Brussel-Hoofdstad'},
+    'BRU': {
+      'default': 'Bruxelles-Capitale',
+      'alt_de': 'Brüssel-Hauptstadt',
+      'alt_en': 'Brussels-Capital',
+      'alt_nl': 'Brussel-Hoofdstad'
+    },
     'VAN': {'default': 'Antwerpen', 'alt_en': 'Antwerp', 'alt_fr': 'Anvers'},
-    'VBR': {'default': 'Vlaams Brabant', 'alt_de': 'Flämisch-Brabant', 'alt_en': 'Flemish Brabant', 'alt_fr': 'Brabant flamand'},
+    'VBR': {
+      'default': 'Vlaams Brabant',
+      'alt_de': 'Flämisch-Brabant',
+      'alt_en': 'Flemish Brabant',
+      'alt_fr': 'Brabant flamand'
+    },
     'VLI': {'default': 'Limburg', 'alt_fr': 'Limbourg'},
-    'VOV': {'default': 'Oost-Vlaanderen', 'alt_en': 'East Flanders', 'alt_fr': 'Flandre orientale'},
-    'VWV': {'default': 'West-Vlaanderen', 'alt_de': 'Westflandern', 'alt_en': 'West Flanders', 'alt_fr': 'Flandre-Occidentale'},
-    'WBR': {'default': 'Brabant wallon', 'alt_de': 'Wallonisch-Brabant', 'alt_en': 'Walloon Brabant', 'alt_nl': 'Waals-Brabant'},
+    'VOV': {
+      'default': 'Oost-Vlaanderen',
+      'alt_en': 'East Flanders',
+      'alt_fr': 'Flandre orientale'
+    },
+    'VWV': {
+      'default': 'West-Vlaanderen',
+      'alt_de': 'Westflandern',
+      'alt_en': 'West Flanders',
+      'alt_fr': 'Flandre-Occidentale'
+    },
+    'WBR': {
+      'default': 'Brabant wallon',
+      'alt_de': 'Wallonisch-Brabant',
+      'alt_en': 'Walloon Brabant',
+      'alt_nl': 'Waals-Brabant'
+    },
     'WHT': {'default': 'Hainaut', 'alt_de': 'Hennegau', 'alt_nl': 'Henegouwen'},
     'WLG': {'default': 'Liège', 'alt_de': 'Lüttich', 'alt_nl': 'Luik'},
-    'WLX': {'default': 'Luxembourg', 'alt_de': 'Luxemburg', 'alt_nl': 'Luxemburg'},
+    'WLX': {
+      'default': 'Luxembourg',
+      'alt_de': 'Luxemburg',
+      'alt_nl': 'Luxemburg'
+    },
     'WNA': {'default': 'Namur', 'alt_nl': 'Namen'},
   },
   'BF': {
@@ -414,12 +445,21 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
     'BC': {'default': 'British Columbia', 'alt_fr': 'Colombie-Britannique'},
     'MB': {'default': 'Manitoba'},
     'NB': {'default': 'New Brunswick', 'alt_fr': 'Nouveau-Brunswick'},
-    'NL': {'default': 'Newfoundland and Labrador', 'alt_fr': 'Terre-Neuve-et-Labrador'},
-    'NT': {'default': 'Northwest Territories', 'alt_fr': 'Territoires du Nord-Ouest'},
+    'NL': {
+      'default': 'Newfoundland and Labrador',
+      'alt_fr': 'Terre-Neuve-et-Labrador'
+    },
+    'NT': {
+      'default': 'Northwest Territories',
+      'alt_fr': 'Territoires du Nord-Ouest'
+    },
     'NS': {'default': 'Nova Scotia', 'alt_fr': 'Nouvelle-Écosse'},
     'NU': {'default': 'Nunavut'},
     'ON': {'default': 'Ontario'},
-    'PE': {'default': 'Prince Edward Island', 'alt_fr': 'Île-du-Prince-Édouard'},
+    'PE': {
+      'default': 'Prince Edward Island',
+      'alt_fr': 'Île-du-Prince-Édouard'
+    },
     'QC': {'default': 'Quebec', 'alt_fr': 'Québec'},
     'SK': {'default': 'Saskatchewan'},
     'YT': {'default': 'Yukon'},
@@ -473,31 +513,76 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
   },
   'CH': {
     'AG': {'default': 'Aargau', 'alt_fr': 'Argovie', 'alt_it': 'Argovia'},
-    'AI': {'default': 'Appenzell Innerrhoden', 'alt_fr': 'Appenzell Rhodes-Intérieures', 'alt_it': 'Appenzello Interno'},
-    'AR': {'default': 'Appenzell Ausserrhoden', 'alt_fr': 'Appenzell Rhodes-Extérieures', 'alt_it': 'Appenzello Esterno'},
+    'AI': {
+      'default': 'Appenzell Innerrhoden',
+      'alt_fr': 'Appenzell Rhodes-Intérieures',
+      'alt_it': 'Appenzello Interno'
+    },
+    'AR': {
+      'default': 'Appenzell Ausserrhoden',
+      'alt_fr': 'Appenzell Rhodes-Extérieures',
+      'alt_it': 'Appenzello Esterno'
+    },
     'BE': {'default': 'Bern', 'alt_fr': 'Berne', 'alt_it': 'Berna'},
-    'BL': {'default': 'Basel-Landschaft', 'alt_fr': 'Bâle-Campagne', 'alt_it': 'Basilea Campagna'},
-    'BS': {'default': 'Basel-Stadt', 'alt_en': 'Basel-City', 'alt_fr': 'Bâle-Ville', 'alt_it': 'Basilea Città'},
+    'BL': {
+      'default': 'Basel-Landschaft',
+      'alt_fr': 'Bâle-Campagne',
+      'alt_it': 'Basilea Campagna'
+    },
+    'BS': {
+      'default': 'Basel-Stadt',
+      'alt_en': 'Basel-City',
+      'alt_fr': 'Bâle-Ville',
+      'alt_it': 'Basilea Città'
+    },
     'FR': {'default': 'Fribourg', 'alt_de': 'Freiburg', 'alt_it': 'Friburgo'},
-    'GE': {'default': 'Geneva', 'alt_de': 'Genf', 'alt_fr': 'Genève', 'alt_it': 'Ginevra'},
+    'GE': {
+      'default': 'Geneva',
+      'alt_de': 'Genf',
+      'alt_fr': 'Genève',
+      'alt_it': 'Ginevra'
+    },
     'GL': {'default': 'Glarus', 'alt_fr': 'Glaris', 'alt_it': 'Glarona'},
-    'GR': {'default': 'Graubünden', 'alt_en': 'Grisons', 'alt_fr': 'Grisons', 'alt_it': 'Grigioni'},
+    'GR': {
+      'default': 'Graubünden',
+      'alt_en': 'Grisons',
+      'alt_fr': 'Grisons',
+      'alt_it': 'Grigioni'
+    },
     'JU': {'default': 'Jura', 'alt_it': 'Giura'},
     'LU': {'default': 'Luzern', 'alt_fr': 'Lucerne', 'alt_it': 'Lucerna'},
     'NE': {'default': 'Neuchâtel', 'alt_de': 'Neuenburg'},
     'NW': {'default': 'Nidwalden', 'alt_fr': 'Nidwald', 'alt_it': 'Nidvaldo'},
     'OW': {'default': 'Obwalden', 'alt_fr': 'Obwald', 'alt_it': 'Obvaldo'},
-    'SG': {'default': 'Sankt Gallen', 'alt_fr': 'Saint-Gall', 'alt_it': 'San Gallo'},
-    'SH': {'default': 'Schaffhausen', 'alt_fr': 'Schaffhouse', 'alt_it': 'Sciaffusa'},
+    'SG': {
+      'default': 'Sankt Gallen',
+      'alt_fr': 'Saint-Gall',
+      'alt_it': 'San Gallo'
+    },
+    'SH': {
+      'default': 'Schaffhausen',
+      'alt_fr': 'Schaffhouse',
+      'alt_it': 'Sciaffusa'
+    },
     'SO': {'default': 'Solothurn', 'alt_fr': 'Soleure', 'alt_it': 'Soletta'},
     'SZ': {'default': 'Schwyz', 'alt_it': 'Svitto'},
     'TG': {'default': 'Thurgau', 'alt_fr': 'Thurgovie', 'alt_it': 'Turgovia'},
     'TI': {'default': 'Ticino', 'alt_de': 'Tessin', 'alt_fr': 'Tessin'},
     'UR': {'default': 'Uri'},
     'VD': {'default': 'Vaud', 'alt_de': 'Waadt'},
-    'VS': {'default': 'Valais/Wallis', 'alt_de': 'Wallis', 'alt_fr': 'Valais', 'alt_it': 'Vallese'},
+    'VS': {
+      'default': 'Valais/Wallis',
+      'alt_de': 'Wallis',
+      'alt_fr': 'Valais',
+      'alt_it': 'Vallese'
+    },
     'ZG': {'default': 'Zug', 'alt_fr': 'Zoug', 'alt_it': 'Zugo'},
-    'ZH': {'default': 'Zürich', 'alt_en': 'Zurich', 'alt_fr': 'Zurich', 'alt_it': 'Zurigo'},
+    'ZH': {
+      'default': 'Zürich',
+      'alt_en': 'Zurich',
+      'alt_fr': 'Zurich',
+      'alt_it': 'Zurigo'
+    },
   },
   'CI': {
     'AB': {'default': 'Abidjan'},
@@ -622,7 +707,10 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
     'HH': {'default': 'Hamburg'},
     'MV': {'default': 'Mecklenburg-Vorpommern'},
     'NI': {'default': 'Niedersachsen', 'alt_en': 'Lower Saxony'},
-    'NW': {'default': 'Nordrhein-Westfalen', 'alt_en': 'North Rhine-Westphalia'},
+    'NW': {
+      'default': 'Nordrhein-Westfalen',
+      'alt_en': 'North Rhine-Westphalia'
+    },
     'RP': {'default': 'Rheinland-Pfalz', 'alt_en': 'Rhineland-Palatinate'},
     'SH': {'default': 'Schleswig-Holstein'},
     'SL': {'default': 'Saarland'},
@@ -665,12 +753,42 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
     'Z': {'default': 'Zamora Chinchipe'},
   },
   'ER': {
-    'AN': {'default': 'ዞባ ዓንሰባ Anseba عنسبا', 'alt_ar': 'عنسبا', 'alt_en': 'Anseba', 'alt_ti': 'ዞባ ዓንሰባ'},
-    'DK': {'default': 'ዞባ ደቡባዊ ቀይሕ ባሕሪ southern Red Sea Zone جنوب البحر الأحمر', 'alt_ar': 'جنوب البحر الأحمر', 'alt_en': 'Southern Red Sea Region', 'alt_ti': 'ዞባ ደቡባዊ ቀይሕ ባሕሪ'},
-    'DU': {'default': 'ዞባ ደቡብ Debub منطقة الجنوب', 'alt_ar': 'منطقة الجنوب', 'alt_en': 'Debub Region', 'alt_ti': 'ዞባ ደቡብ'},
-    'GB': {'default': 'ጋሽ-ባርካ Gash barka القاش وبركة', 'alt_ar': 'القاش وبركة', 'alt_en': 'Gash-Barka', 'alt_ti': 'ጋሽ-ባርካ'},
-    'MA': {'default': 'ዞባ ማእከል Maekel zone المنطقة المركزية', 'alt_ar': 'المنطقة المركزية', 'alt_en': 'Maekel Region', 'alt_ti': 'ዞባ ማእከል'},
-    'SK': {'default': 'ዞባ ሰሜናዊ ቀይሕ ባሕሪ Northern Red Sea zone شمال البحر الأحمر', 'alt_ar': 'شمال البحر الأحمر', 'alt_en': 'Northen Red Sea Region', 'alt_ti': 'ዞባ ሰሜናዊ ቀይሕ ባሕሪ'},
+    'AN': {
+      'default': 'ዞባ ዓንሰባ Anseba عنسبا',
+      'alt_ar': 'عنسبا',
+      'alt_en': 'Anseba',
+      'alt_ti': 'ዞባ ዓንሰባ'
+    },
+    'DK': {
+      'default': 'ዞባ ደቡባዊ ቀይሕ ባሕሪ southern Red Sea Zone جنوب البحر الأحمر',
+      'alt_ar': 'جنوب البحر الأحمر',
+      'alt_en': 'Southern Red Sea Region',
+      'alt_ti': 'ዞባ ደቡባዊ ቀይሕ ባሕሪ'
+    },
+    'DU': {
+      'default': 'ዞባ ደቡብ Debub منطقة الجنوب',
+      'alt_ar': 'منطقة الجنوب',
+      'alt_en': 'Debub Region',
+      'alt_ti': 'ዞባ ደቡብ'
+    },
+    'GB': {
+      'default': 'ጋሽ-ባርካ Gash barka القاش وبركة',
+      'alt_ar': 'القاش وبركة',
+      'alt_en': 'Gash-Barka',
+      'alt_ti': 'ጋሽ-ባርካ'
+    },
+    'MA': {
+      'default': 'ዞባ ማእከል Maekel zone المنطقة المركزية',
+      'alt_ar': 'المنطقة المركزية',
+      'alt_en': 'Maekel Region',
+      'alt_ti': 'ዞባ ማእከል'
+    },
+    'SK': {
+      'default': 'ዞባ ሰሜናዊ ቀይሕ ባሕሪ Northern Red Sea zone شمال البحر الأحمر',
+      'alt_ar': 'شمال البحر الأحمر',
+      'alt_en': 'Northen Red Sea Region',
+      'alt_ti': 'ዞባ ሰሜናዊ ቀይሕ ባሕሪ'
+    },
   },
   'ES': {
     'AN': {'default': 'Andalucía', 'alt_en': 'Andalusia'},
@@ -689,7 +807,11 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
     'MD': {'default': 'Comunidad de Madrid', 'alt_en': 'Community of Madrid'},
     'ML': {'default': 'Melilla'},
     'NC': {'default': 'Navarra'},
-    'PV': {'default': 'País Vasco', 'alt_en': 'Autonomous Community of the Basque Country', 'alt_eu': 'Euskadi'},
+    'PV': {
+      'default': 'País Vasco',
+      'alt_en': 'Autonomous Community of the Basque Country',
+      'alt_eu': 'Euskadi'
+    },
     'RI': {'default': 'La Rioja', 'alt_en': 'Rioja'},
     'VC': {'default': 'Comunidad Valenciana', 'alt_en': 'Valencian Community'},
   },
@@ -732,17 +854,30 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
     'WLS': {'default': 'Wales'},
   },
   'GE': {
-    'AB': {'default': 'აფხაზეთის ავტონომიური რესპუბლიკა - Аҧсны Автономтә Республика', 'alt_en': 'Autonomous Republic of Abkhazia'},
-    'AJ': {'default': 'აჭარის ავტონომიური რესპუბლიკა', 'alt_en': 'Autonomous Republic of Adjara'},
+    'AB': {
+      'default':
+          'აფხაზეთის ავტონომიური რესპუბლიკა - Аҧсны Автономтә Республика',
+      'alt_en': 'Autonomous Republic of Abkhazia'
+    },
+    'AJ': {
+      'default': 'აჭარის ავტონომიური რესპუბლიკა',
+      'alt_en': 'Autonomous Republic of Adjara'
+    },
     'GU': {'default': 'გურია', 'alt_en': 'Guria'},
     'IM': {'default': 'იმერეთი', 'alt_en': 'Imereti'},
     'KA': {'default': 'კახეთი', 'alt_en': 'Kakheti'},
     'KK': {'default': 'ქვემო ქართლი', 'alt_en': 'Lower Kartli'},
     'MM': {'default': 'მცხეთა-მთიანეთი', 'alt_en': 'Mtskheta-Mtianeti'},
-    'RL': {'default': 'რაჭა-ლეჩხუმი და ქვემო სვანეთი', 'alt_en': 'Racha-Lechkhumi and Lower Svaneti'},
+    'RL': {
+      'default': 'რაჭა-ლეჩხუმი და ქვემო სვანეთი',
+      'alt_en': 'Racha-Lechkhumi and Lower Svaneti'
+    },
     'SJ': {'default': 'სამცხე-ჯავახეთი', 'alt_en': 'Samtskhe-Javakheti'},
     'SK': {'default': 'შიდა ქართლი', 'alt_en': 'Inner Kartli'},
-    'SZ': {'default': 'სამეგრელო-ზემო სვანეთი', 'alt_en': 'Samegrelo-Upper Svaneti'},
+    'SZ': {
+      'default': 'სამეგრელო-ზემო სვანეთი',
+      'alt_en': 'Samegrelo-Upper Svaneti'
+    },
     'TB': {'default': 'თბილისი', 'alt_en': 'Tbilisi'},
   },
   'GH': {
@@ -898,14 +1033,20 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
   'ID': {
     'AC': {'default': 'Aceh'},
     'BA': {'default': 'Bali'},
-    'BB': {'default': 'Kepulauan Bangka Belitung', 'alt_en': 'Bangka-Belitung Islands'},
+    'BB': {
+      'default': 'Kepulauan Bangka Belitung',
+      'alt_en': 'Bangka-Belitung Islands'
+    },
     'BE': {'default': 'Bengkulu'},
     'BT': {'default': 'Banten'},
     'GO': {'default': 'Gorontalo'},
     'JA': {'default': 'Jambi'},
     'JB': {'default': 'Jawa Barat', 'alt_en': 'West Java'},
     'JI': {'default': 'Jawa Timur', 'alt_en': 'East Java'},
-    'JK': {'default': 'Daerah Khusus Ibukota Jakarta', 'alt_en': 'Jakarta Special Capital Region'},
+    'JK': {
+      'default': 'Daerah Khusus Ibukota Jakarta',
+      'alt_en': 'Jakarta Special Capital Region'
+    },
     'JT': {'default': 'Jawa Tengah', 'alt_en': 'Central Java'},
     'KB': {'default': 'Kalimantan Barat', 'alt_en': 'West Kalimantan'},
     'KI': {'default': 'Kalimantan Timur', 'alt_en': 'East Kalimantan'},
@@ -929,7 +1070,10 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
     'SS': {'default': 'Sumatera Selatan', 'alt_en': 'South Sumatra'},
     'ST': {'default': 'Sulawesi Tengah', 'alt_en': 'Central Sulawesi'},
     'SU': {'default': 'Sumatera Utara', 'alt_en': 'North Sumatra'},
-    'YO': {'default': 'Daerah Istimewa Yogyakarta', 'alt_en': 'Special Region of Yogyakarta'},
+    'YO': {
+      'default': 'Daerah Istimewa Yogyakarta',
+      'alt_en': 'Special Region of Yogyakarta'
+    },
   },
   'IE': {
     'C': {'default': 'Connacht'},
@@ -992,7 +1136,11 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
     'SAR': {'default': 'Sardegna'},
     'SIC': {'default': 'Sicilia'},
     'TOS': {'default': 'Toscana'},
-    'TRE': {'default': 'Trentino-Alto Adige/Südtirol', 'alt_de': 'Trentino-Südtirol', 'alt_it': 'Trentino-Alto Adige'},
+    'TRE': {
+      'default': 'Trentino-Alto Adige/Südtirol',
+      'alt_de': 'Trentino-Südtirol',
+      'alt_it': 'Trentino-Alto Adige'
+    },
     'UMB': {'default': 'Umbria'},
     'VAL': {'default': 'Valle d\'Aosta'},
     'VEN': {'default': 'Veneto'},
@@ -1076,22 +1224,63 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
     'KZY': {'default': 'Кызылординская область', 'alt_en': 'Kyzylorda Region'},
     'MAN': {'default': 'Мангистауская область', 'alt_en': 'Mangystau Region'},
     'PAV': {'default': 'Павлодарская область', 'alt_en': 'Pavlodar Region'},
-    'SEV': {'default': 'Северо-Казахстанская область', 'alt_en': 'North Kazakhstan Region'},
+    'SEV': {
+      'default': 'Северо-Казахстанская область',
+      'alt_en': 'North Kazakhstan Region'
+    },
     'SHY': {'default': 'Шымкент', 'alt_en': 'Shymkent Region'},
-    'VOS': {'default': 'Восточно-Казахстанская область', 'alt_en': 'East Kazakhstan Region'},
+    'VOS': {
+      'default': 'Восточно-Казахстанская область',
+      'alt_en': 'East Kazakhstan Region'
+    },
     'YUZ': {'default': 'Туркестанская область', 'alt_en': 'Turkistan Region'},
-    'ZAP': {'default': 'Западно-Казахстанская область', 'alt_en': 'West Kazakhstan Region'},
+    'ZAP': {
+      'default': 'Западно-Казахстанская область',
+      'alt_en': 'West Kazakhstan Region'
+    },
     'ZHA': {'default': 'Жамбылская область', 'alt_en': 'Jambyl Region'},
   },
   'LB': {
-    'AK': {'default': 'محافظة عكار', 'alt_en': 'Akkar Governorate', 'alt_fr': 'Gouvernorat de l\'Akkar'},
-    'AS': {'default': 'محافظة الشمال', 'alt_en': 'North Governorate', 'alt_fr': 'Gouvernorat du Liban Nord'},
-    'BA': {'default': 'محافظة بيروت', 'alt_en': 'Beirut Governorate', 'alt_fr': 'Gouvernorat de Beyrouth'},
-    'BH': {'default': 'محافظة بعلبك الهرمل', 'alt_en': 'Baalbek-Hermel Governorate', 'alt_fr': 'Gouvernorat de Baalbek-Hermel'},
-    'BI': {'default': 'محافظة البقاع', 'alt_en': 'Beqaa Governorate', 'alt_fr': 'Gouvernorat de Beqaa'},
-    'JA': {'default': 'محافظة الجنوب', 'alt_en': 'South Governorate', 'alt_fr': 'Gouvernorat du Liban Sud'},
-    'JL': {'default': 'محافظة جبل لبنان', 'alt_en': 'Mount Lebanon Governorate', 'alt_fr': 'Gouvernorat du Mont Liban'},
-    'NA': {'default': 'محافظة النبطية', 'alt_en': 'Nabatiya Governorate', 'alt_fr': 'Gouvernorat de Nabatiyeh'},
+    'AK': {
+      'default': 'محافظة عكار',
+      'alt_en': 'Akkar Governorate',
+      'alt_fr': 'Gouvernorat de l\'Akkar'
+    },
+    'AS': {
+      'default': 'محافظة الشمال',
+      'alt_en': 'North Governorate',
+      'alt_fr': 'Gouvernorat du Liban Nord'
+    },
+    'BA': {
+      'default': 'محافظة بيروت',
+      'alt_en': 'Beirut Governorate',
+      'alt_fr': 'Gouvernorat de Beyrouth'
+    },
+    'BH': {
+      'default': 'محافظة بعلبك الهرمل',
+      'alt_en': 'Baalbek-Hermel Governorate',
+      'alt_fr': 'Gouvernorat de Baalbek-Hermel'
+    },
+    'BI': {
+      'default': 'محافظة البقاع',
+      'alt_en': 'Beqaa Governorate',
+      'alt_fr': 'Gouvernorat de Beqaa'
+    },
+    'JA': {
+      'default': 'محافظة الجنوب',
+      'alt_en': 'South Governorate',
+      'alt_fr': 'Gouvernorat du Liban Sud'
+    },
+    'JL': {
+      'default': 'محافظة جبل لبنان',
+      'alt_en': 'Mount Lebanon Governorate',
+      'alt_fr': 'Gouvernorat du Mont Liban'
+    },
+    'NA': {
+      'default': 'محافظة النبطية',
+      'alt_en': 'Nabatiya Governorate',
+      'alt_fr': 'Gouvernorat de Nabatiyeh'
+    },
   },
   'LR': {
     'BG': {'default': 'Bong'},
@@ -1252,7 +1441,10 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
   'MX': {
     'AGU': {'default': 'Aguascalientes'},
     'BCN': {'default': 'Baja California'},
-    'BCS': {'default': 'Baja California Sur', 'alt_en': 'Lower California South'},
+    'BCS': {
+      'default': 'Baja California Sur',
+      'alt_en': 'Lower California South'
+    },
     'CAM': {'default': 'Campeche'},
     'CHH': {'default': 'Chihuahua'},
     'CHP': {'default': 'Chiapas'},
@@ -1422,8 +1614,14 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
     'WTC': {'default': 'West Coast'},
   },
   'OM': {
-    'BJ': {'default': 'محافظة جنوب الباطنة', 'alt_en': 'Al Batinah South Governorate'},
-    'BS': {'default': 'محافظة شمال الباطنة', 'alt_en': 'Al Batinah North Governorate'},
+    'BJ': {
+      'default': 'محافظة جنوب الباطنة',
+      'alt_en': 'Al Batinah South Governorate'
+    },
+    'BS': {
+      'default': 'محافظة شمال الباطنة',
+      'alt_en': 'Al Batinah North Governorate'
+    },
     'BU': {'default': 'محافظة البريمي', 'alt_en': 'Al Buraymi Governorate'},
     'DA': {'default': 'محافظة الداخلية', 'alt_en': 'Ad Dakhiliyah Governorate'},
     'MA': {'default': 'مسقط', 'alt_en': 'Muscat'},
@@ -1579,22 +1777,55 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
     'TA': {'default': 'Federally Administered Tribal Areas'},
   },
   'PL': {
-    '02': {'default': 'województwo dolnośląskie', 'alt_en': 'Lower Silesian Voivodeship'},
-    '04': {'default': 'województwo kujawsko-pomorskie', 'alt_en': 'Kuyavian-Pomeranian Voivodeship'},
+    '02': {
+      'default': 'województwo dolnośląskie',
+      'alt_en': 'Lower Silesian Voivodeship'
+    },
+    '04': {
+      'default': 'województwo kujawsko-pomorskie',
+      'alt_en': 'Kuyavian-Pomeranian Voivodeship'
+    },
     '06': {'default': 'województwo lubelskie', 'alt_en': 'Lublin Voivodeship'},
     '08': {'default': 'województwo lubuskie', 'alt_en': 'Lubusz Voivodeship'},
     '10': {'default': 'województwo łódzkie', 'alt_en': 'Łódź Voivodeship'},
-    '12': {'default': 'województwo małopolskie', 'alt_en': 'Lesser Poland Voivodeship'},
-    '14': {'default': 'województwo mazowieckie', 'alt_en': 'Masovian Voivodeship'},
+    '12': {
+      'default': 'województwo małopolskie',
+      'alt_en': 'Lesser Poland Voivodeship'
+    },
+    '14': {
+      'default': 'województwo mazowieckie',
+      'alt_en': 'Masovian Voivodeship'
+    },
     '16': {'default': 'województwo opolskie', 'alt_en': 'Opole Voivodeship'},
-    '18': {'default': 'województwo podkarpackie', 'alt_en': 'Subcarpathian Voivodeship'},
-    '20': {'default': 'województwo podlaskie', 'alt_en': 'Podlaskie Voivodeship'},
-    '22': {'default': 'województwo pomorskie', 'alt_en': 'Pomeranian Voivodeship'},
+    '18': {
+      'default': 'województwo podkarpackie',
+      'alt_en': 'Subcarpathian Voivodeship'
+    },
+    '20': {
+      'default': 'województwo podlaskie',
+      'alt_en': 'Podlaskie Voivodeship'
+    },
+    '22': {
+      'default': 'województwo pomorskie',
+      'alt_en': 'Pomeranian Voivodeship'
+    },
     '24': {'default': 'województwo śląskie', 'alt_en': 'Silesian Voivodeship'},
-    '26': {'default': 'województwo świętokrzyskie', 'alt_en': 'Świętokrzyskie Voivodeship'},
-    '28': {'default': 'województwo warmińsko-mazurskie', 'alt_en': 'Warmian-Masurian Voivodeship'},
-    '30': {'default': 'województwo wielkopolskie', 'alt_en': 'Greater Poland Voivodeship'},
-    '32': {'default': 'województwo zachodniopomorskie', 'alt_en': 'West Pomeranian Voivodeship'},
+    '26': {
+      'default': 'województwo świętokrzyskie',
+      'alt_en': 'Świętokrzyskie Voivodeship'
+    },
+    '28': {
+      'default': 'województwo warmińsko-mazurskie',
+      'alt_en': 'Warmian-Masurian Voivodeship'
+    },
+    '30': {
+      'default': 'województwo wielkopolskie',
+      'alt_en': 'Greater Poland Voivodeship'
+    },
+    '32': {
+      'default': 'województwo zachodniopomorskie',
+      'alt_en': 'West Pomeranian Voivodeship'
+    },
   },
   'QA': {
     'DA': {'default': 'الدوحة', 'alt_en': 'Doha'},
@@ -1688,7 +1919,10 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
     'TA': {'default': 'Tristan da Cunha'},
   },
   'SK': {
-    'BC': {'default': 'Banskobystrický kraj', 'alt_en': 'Region of Banská Bystrica'},
+    'BC': {
+      'default': 'Banskobystrický kraj',
+      'alt_en': 'Region of Banská Bystrica'
+    },
     'BL': {'default': 'Bratislavský kraj', 'alt_en': 'Region of Bratislava'},
     'KI': {'default': 'Košický kraj', 'alt_en': 'Region of Košice'},
     'NI': {'default': 'Nitrianský kraj', 'alt_en': 'Region of Nitra'},
@@ -1839,9 +2073,15 @@ const Map<String, Map<String, Map<String, String>>> kStateCodes = {
   },
   'TJ': {
     'DU': {'default': 'Душанбе', 'alt_en': 'Dushanbe'},
-    'GB': {'default': 'Вилояти Мухтори Кӯҳистони Бадахшон', 'alt_en': 'Gorno-Badakhshan Autonomous Region'},
+    'GB': {
+      'default': 'Вилояти Мухтори Кӯҳистони Бадахшон',
+      'alt_en': 'Gorno-Badakhshan Autonomous Region'
+    },
     'KT': {'default': 'Вилояти Хатлон', 'alt_en': 'Khatlon Region'},
-    'RA': {'default': 'Ноҳияҳои тобеи ҷумҳурӣ', 'alt_en': 'Districts of Republican Subordination'},
+    'RA': {
+      'default': 'Ноҳияҳои тобеи ҷумҳурӣ',
+      'alt_en': 'Districts of Republican Subordination'
+    },
     'SU': {'default': 'Вилояти Суғд', 'alt_en': 'Sughd Region'},
   },
   'TL': {
